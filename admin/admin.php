@@ -1,0 +1,3 @@
+<?php
+
+include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/tournaments.php';    

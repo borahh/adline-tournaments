@@ -1,0 +1,10 @@
+
+/* Menu Items */
+#menu-posts-tournament {
+    background-color: rebeccapurple !important;
+}
+
+#menu-posts-tournament:hover {
+    background-color: rgba(102, 51, 153, 0.658) !important;
+}
+

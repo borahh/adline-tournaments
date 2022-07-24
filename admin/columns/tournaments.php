@@ -21,7 +21,7 @@ function custom_tournament_column( $column, $post_id ) {
             $title = get_the_title($postObjId);
             $editLink = get_edit_post_link($postObjId);
 
-            echo '<a href="' . $editLink . '">' . $title . '</a>';
+            echo '<a href="' . $editLink . '">' . $postObjId . '</a>';
             break;
 
         case 'product_ticket' :
@@ -29,7 +29,7 @@ function custom_tournament_column( $column, $post_id ) {
             $title = get_the_title($postObjId);
             $editLink = get_edit_post_link($postObjId);
 
-            echo '<a href="' . $editLink . '">' . $title . '</a>';
+            echo '<a href="' . $editLink . '">' . $postObjId . '</a>';
             break;
 
     }

@@ -25,7 +25,6 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_ADMIN' ) ) {
 
 
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';    
-include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'fields.php';    
 
 
 /**

@@ -17,19 +17,19 @@ function custom_tournament_column( $column, $post_id ) {
     switch ( $column ) {
 
         case 'entry_page' :
-            $postObjId = get_field( $post_id , 'adlt_product' , true ); 
+            $postObjId = get_field( 'adlt_product' , $post_id, true ); 
             $title = get_the_title($postObjId);
             $editLink = get_edit_post_link($postObjId);
 
-            echo '<a href="' . $editLink . '">' . $postObjId . '</a>';
+            echo '<a href="' . $editLink . '">' . $title . '</a>';
             break;
 
         case 'product_ticket' :
-            $postObjId = get_field( $post_id , 'adlt_ep' , true ); 
+            $postObjId = get_field( 'adlt_ep' , $post_id, true ); 
             $title = get_the_title($postObjId);
             $editLink = get_edit_post_link($postObjId);
 
-            echo '<a href="' . $editLink . '">' . $postObjId . '</a>';
+            echo '<a href="' . $editLink . '">' . $title . '</a>';
             break;
 
     }

@@ -4,8 +4,10 @@
 add_filter( 'manage_tournament_posts_columns', 'set_custom_edit_tournament_columns' );
 function set_custom_edit_tournament_columns($columns) {
     unset( $columns['author'] );
+    unset( $columns['date'] );
     $columns['book_author'] = __( 'Author', 'your_text_domain' );
     $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
+    $columns['date'] = __( 'Date', 'your_text_domain' );
 
     return $columns;
 }

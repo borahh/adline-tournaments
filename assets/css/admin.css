@@ -1,10 +1,10 @@
 
 /* Menu Items */
-#menu-posts-tournament,  #menu-posts-entry-page{
+#toplevel_page_manage_tournaments {
     background-color: rebeccapurple !important;
 }
 
-#menu-posts-tournament:hover, #menu-posts-entry-page:hover{
+#toplevel_page_manage_tournaments:hover {
     background-color: rgba(102, 51, 153, 0.658) !important;
 }
 

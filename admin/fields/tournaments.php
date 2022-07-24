@@ -166,4 +166,4 @@ function adlt_register_custom_acf_fields() {
         
         endif;
     }
-    add_action( 'init', 'register_custom_acf_fields' );
+    add_action( 'init', 'adlt_register_custom_acf_fields' );

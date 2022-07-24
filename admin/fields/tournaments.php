@@ -1,5 +1,8 @@
 <?php
 
+
+if( function_exists('acf_add_local_field_group') ):
+
 acf_add_local_field_group(array(
 	'key' => 'group_62dc2412135b5',
 	'title' => 'Basic Fields',
@@ -160,3 +163,5 @@ acf_add_local_field_group(array(
 	'active' => true,
 	'description' => '',
 ));
+
+endif;

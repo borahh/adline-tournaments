@@ -3,11 +3,10 @@
 // Add the custom columns to the book post type:
 add_filter( 'manage_tournament_posts_columns', 'set_custom_edit_tournament_columns' );
 function set_custom_edit_tournament_columns($columns) {
-    unset( $columns['author'] );
     unset( $columns['date'] );
-    $columns['book_author'] = __( 'Author', 'your_text_domain' );
-    $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
-    $columns['date'] = __( 'Date', 'your_text_domain' );
+    $columns['entry_page'] = __( 'Entry Page', 'adline-tournaments' );
+    $columns['product_ticket'] = __( 'Product', 'adline-tournaments' );
+    $columns['date'] = __( 'Date', 'adline-tournaments' );
 
     return $columns;
 }
@@ -17,16 +16,20 @@ add_action( 'manage_tournament_posts_custom_column' , 'custom_tournament_column'
 function custom_tournament_column( $column, $post_id ) {
     switch ( $column ) {
 
-        case 'book_author' :
-            $terms = get_the_term_list( $post_id , 'book_author' , '' , ',' , '' );
-            if ( is_string( $terms ) )
-                echo $terms;
-            else
-                _e( 'Unable to get author(s)', 'your_text_domain' );
+        case 'entry_page' :
+            $postObjId = get_field( $post_id , 'adlt_product' , true ); 
+            $title = get_the_title($postObjId);
+            $editLink = get_edit_post_link($postObjId);
+
+            echo '<a href="' . $editLink . '">' . $title . '</a>';
             break;
 
-        case 'publisher' :
-            echo get_post_meta( $post_id , 'publisher' , true ); 
+        case 'product_ticket' :
+            $postObjId = get_field( $post_id , 'adlt_ep' , true ); 
+            $title = get_the_title($postObjId);
+            $editLink = get_edit_post_link($postObjId);
+
+            echo '<a href="' . $editLink . '">' . $title . '</a>';
             break;
 
     }

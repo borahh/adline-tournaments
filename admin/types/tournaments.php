@@ -77,6 +77,7 @@ add_action( 'init', function() {
         'hierarchical'      => false,
         'labels'            => $labels,
         'show_ui'           => true,
+        'show_in_menu'       => false,
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array( 'slug' => 'tournament-category' ),

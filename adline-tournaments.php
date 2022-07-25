@@ -49,16 +49,22 @@ add_action( 'admin_enqueue_scripts', function() {
 		wp_enqueue_style( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'plugins.bundle.css', NULL, '1.0' );
 		wp_enqueue_script( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'scripts.bundle.js', NULL, '1.0' );
 		wp_enqueue_script( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'plugins.bundle.js', NULL, '1.0' );
+		wp_enqueue_script( 'dtb', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'datatables.bundle.js', NULL, '1.0' );
+		wp_enqueue_script( 'custom_widget', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.js', NULL, '1.0' );
+		wp_enqueue_script( 'widgets', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.bundle.js', NULL, '1.0' );
 
 	}
 } );
 require_once(ABSPATH . 'wp-admin/includes/screen.php');
-add_action( 'current_screen', 'wpdocs_this_screen' );
+
+
+
+// add_action( 'current_screen', 'wpdocs_this_screen' );
  
 /**
  * Run code on the admin widgets page
  */
-function wpdocs_this_screen() {
-    $currentScreen = get_current_screen();
-    print_r($currentScreen);
-}
+// function wpdocs_this_screen() {
+//     $currentScreen = get_current_screen();
+//     print_r($currentScreen);
+// }

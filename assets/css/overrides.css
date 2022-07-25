@@ -1,1 +1,1 @@
-.wp-toolbar { border:none;}#wpfooter{display: none;}.separator{border:0px;}
+.wp-toolbar { border:none;}#wpfooter{display: none;} [class*="wp"] > .separator{border:0px;}

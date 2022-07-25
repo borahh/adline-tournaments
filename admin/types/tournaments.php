@@ -46,7 +46,7 @@ add_action( 'init', function() {
         'hierarchical'       => false,
         'menu_position'      => 20,
         'supports'           => array( 'title', 'editor' ),
-        'show_in_rest'       => true
+        'show_in_rest'       => false
     );
       
     register_post_type( 'tournament', $args );

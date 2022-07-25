@@ -13,9 +13,19 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR', plugin_dir_path( __FILE__ ) );
 }
 
+// Define assets/media path
+if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_MEDIA' ) ) {
+	define( 'BORAHH_ADL_TOURNAMENTS_DIR_MEDIA', plugin_dir_url( __FILE__ ) . 'assets/media/' );
+}
+
 // Define assets/css path
 if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_CSS' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR_CSS', plugin_dir_url( __FILE__ ) . 'assets/css/' );
+}
+
+// Define assets/js path
+if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_JS' ) ) {
+	define( 'BORAHH_ADL_TOURNAMENTS_DIR_JS', plugin_dir_url( __FILE__ ) . 'assets/js/' );
 }
 
 // Define admin path
@@ -33,4 +43,22 @@ include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';
  */
 add_action( 'admin_enqueue_scripts', function() {
     wp_enqueue_style( 'adl_admin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'admin.css', NULL, '1.0' );
+	if ( $_GET['page'] == 'manage_tournaments') {
+		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
+		wp_enqueue_style( 'overrides', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'overrides.css', NULL, '1.0' );
+		wp_enqueue_style( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'plugins.bundle.css', NULL, '1.0' );
+		wp_enqueue_script( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'scripts.bundle.js', NULL, '1.0' );
+		wp_enqueue_script( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'plugins.bundle.js', NULL, '1.0' );
+
+	}
 } );
+require_once(ABSPATH . 'wp-admin/includes/screen.php');
+add_action( 'current_screen', 'wpdocs_this_screen' );
+ 
+/**
+ * Run code on the admin widgets page
+ */
+function wpdocs_this_screen() {
+    $currentScreen = get_current_screen();
+    print_r($currentScreen);
+}

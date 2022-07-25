@@ -5,3 +5,29 @@ include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/tournaments.php';
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/entry-pages.php';    
 // include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'columns/tournaments.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'fields/tournaments.php';    
+
+
+/**
+ * 
+ * Remove notices from admin page
+ * 
+ */
+add_action('in_admin_header', function() {
+    if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'create-tournament' || $_GET['post_type'] == 'tournament') {
+        remove_all_actions( 'user_admin_notices' );
+        remove_all_actions( 'admin_notices' );
+    }
+}, 99);
+
+
+/**
+ * Redirect specific admin page
+ */
+
+add_action('current_screen', function() {
+    $my_current_screen = get_current_screen();
+    if (isset($my_current_screen->base) && $my_current_screen->base == 'edit' && $my_current_screen->id == 'edit-tournament') {
+        wp_redirect('admin.php?page=manage_tournaments');
+        exit();
+    }
+});

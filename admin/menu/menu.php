@@ -24,6 +24,7 @@ add_action( 'admin_menu', function() {
         'tickets',
         'adline_tickets_page',
     );
+
     
     add_submenu_page(
         'manage_tournaments',
@@ -48,9 +49,33 @@ add_action( 'admin_menu', function() {
         'manage_options',
         'edit.php?post_type=shop_order',
     );
+
+	add_submenu_page(
+        'tickets',
+        'Actions',
+        'Actions',
+        'manage_options',
+        'actions',
+        'adline_actions_page',
+    );
+    
 }, 999 );
 
  
+function adline_actions_page() {
+
+	// Category Delete Form
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$delete = $_POST["delete"];
+
+		if($delete) {
+				wp_delete_term($delete, 'tournament-category');
+				wp_redirect('admin.php?page=manage_tournaments');
+		}
+		
+	}
+
+}
 
 
  
@@ -124,23 +149,64 @@ function adline_manage_tournaments_page(){
 														<!--begin::Subtitle-->
 														<span class="text-white opacity-75 pt-1 fw-semibold fs-6">Tournaments</span>
 														<!--end::Subtitle-->
+														
+
 													</div>
 													<!--end::Title-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar">
+														<!--begin::Menu-->
+														<button class="btn btn-icon btn-color-white btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+															<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
+															<span class="svg-icon svg-icon-1 svg-icon-2hx svg-icon-white me-n1">
+																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
+																	<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																	<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																	<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																</svg>
+															</span>
+															<!--end::Svg Icon-->
+														</button>
+														<!--begin::Menu 2-->
+														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Actions</div>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu separator-->
+															<div class="separator mb-3 opacity-75"></div>
+															<!--end::Menu separator-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3">New Tournament</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#tournaments" class="menu-link px-3" data-kt-scroll-toggle>Manage Tournaments</a>
+															</div>
+															<!--end::Menu item-->
+															
+															
+														</div>
+														<!--end::Menu 2-->
+														<!--end::Menu-->
+													</div>
+													<!--end::Toolbar-->
 												</div>
 												<!--end::Header-->
 												<!--begin::Card body-->
 												<div class="card-body d-flex flex-column justify-content-end pe-0">
-													<!--begin::Title-->
-													<span class="fs-6 fw-bolder text-white-50 d-block mb-2">Actions</span>
-													<!--end::Title-->
-													<!--begin::Action Wrap-->
-													<div class="w-50 d-flex flex-stack">
-														<!--begin::Section-->
-														<a href="#tournaments" class="text-light fw-semibold fs-6 me-2" data-kt-scroll-toggle>Manage</a>
-														<!--end::Section-->
-														
-													</div>
-													<!--end::Action Wrap-->
+												<span class="svg-icon svg-icon-muted svg-icon-5hx">
+													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"/>
+														<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor"/>
+														<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor"/>
+														<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor"/>
+													</svg>
+												</span>
 												</div>
 												<!--end::Card body-->
 											</div>
@@ -152,28 +218,64 @@ function adline_manage_tournaments_page(){
 													<!--begin::Title-->
 													<div class="card-title d-flex flex-column">
 														<!--begin::Amount-->
-														<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">357</span>
+														<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"><?php echo wp_count_terms(array('taxonomy' => 'tournament-category')) ;?></span>
 														<!--end::Amount-->
 														<!--begin::Subtitle-->
 														<span class="text-gray-400 pt-1 fw-semibold fs-6">Categories</span>
 														<!--end::Subtitle-->
 													</div>
 													<!--end::Title-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar">
+														<!--begin::Menu-->
+														<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+															<!--begin::Svg Icon | path: icons/duotune/general/gen023.svg-->
+															<span class="svg-icon svg-icon-1 svg-icon-2hx svg-icon-gray-300 me-n1">
+																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="4" fill="currentColor" />
+																	<rect x="11" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																	<rect x="15" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																	<rect x="7" y="11" width="2.6" height="2.6" rx="1.3" fill="currentColor" />
+																</svg>
+															</span>
+															<!--end::Svg Icon-->
+														</button>
+														<!--begin::Menu 2-->
+														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Actions</div>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu separator-->
+															<div class="separator mb-3 opacity-75"></div>
+															<!--end::Menu separator-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#create-category">New Category</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#categories" class="menu-link px-3" data-kt-scroll-toggle>Manage Categories</a>
+															</div>
+															<!--end::Menu item-->
+															
+															
+														</div>
+														<!--end::Menu 2-->
+														<!--end::Menu-->
+													</div>
+													<!--end::Toolbar-->
 												</div>
 												<!--end::Header-->
 												<!--begin::Card body-->
 												<div class="card-body d-flex flex-column justify-content-end pe-0">
-													<!--begin::Title-->
-													<span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Actions</span>
-													<!--end::Title-->
-													<!--begin::Action Wrap-->
-													<div class="w-50 d-flex flex-stack">
-														<!--begin::Section-->
-														<a href="edit-tags.php?taxonomy=tournament-category&post_type=tournament" class="text-primary fw-semibold fs-6 me-2">Manage</a>
-														<!--end::Section-->
-														
-													</div>
-													<!--end::Action Wrap-->
+												<span class="svg-icon svg-icon-muted svg-icon-5hx">
+													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M16.0077 19.2901L12.9293 17.5311C12.3487 17.1993 11.6407 17.1796 11.0426 17.4787L6.89443 19.5528C5.56462 20.2177 4 19.2507 4 17.7639V5C4 3.89543 4.89543 3 6 3H17C18.1046 3 19 3.89543 19 5V17.5536C19 19.0893 17.341 20.052 16.0077 19.2901Z" fill="currentColor"/>
+													</svg>
+												</span>
 												</div>
 												<!--end::Card body-->
 											</div>
@@ -434,37 +536,96 @@ function adline_manage_tournaments_page(){
 									<!--begin::Row-->
 									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
 										<!--begin::Col-->
-										<div class="col-xl-4">
-											<!--begin::Engage widget 1-->
-											<div class="card h-md-100">
-												<!--begin::Body-->
-												<div class="card-body d-flex flex-column flex-center">
-													<!--begin::Heading-->
-													<div class="mb-2">
-														<!--begin::Title-->
-														<h1 class="fw-semibold text-gray-800 text-center lh-lg">Have your tried
-														<br>the
-														<span class="fw-bolder">Order Manager?</span></h1>
-														<!--end::Title-->
-														<!--begin::Illustration-->
-														<div class="py-10 text-center">
-															<img src="<?php echo BORAHH_ADL_TOURNAMENTS_DIR_MEDIA . 'illustrations/misc/2.svg'; ?>" class="theme-light-show w-200px" alt="">
-														</div>
-														<!--end::Illustration-->
-													</div>
-													<!--end::Heading-->
-													<!--begin::Links-->
-													<div class="text-center mb-1">
-														<!--begin::Link-->
-														<a class="btn btn-sm btn-primary me-2" data-bs-target="#kt_modal_new_address" data-bs-toggle="modal">Try Now</a>
-														<!--end::Link-->
-														
-													</div>
-													<!--end::Links-->
+										<div id="categories" class="col-xl-4">
+											<!--begin::Category widget 1-->
+											<!--begin::Table Widget 4-->
+											<div class="card card-flush h-xl-100" style="max-width: 100%">
+												<!--begin::Card header-->
+												<div class="card-header pt-7">
+													<!--begin::Title-->
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold text-gray-800">Categories</span>
+													</h3>
+													<!--end::Title-->
+													
 												</div>
-												<!--end::Body-->
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-2">
+													<!--begin::Table-->
+													<table class="table align-middle table-row-dashed fs-6 gy-3" >
+														<!--begin::Table head-->
+														<thead>
+															<!--begin::Table row-->
+															<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+																<th class="min-w-100px">Title</th>														
+																<th class="text-end"></th>
+															</tr>
+															<!--end::Table row-->
+														</thead>
+														<!--end::Table head-->
+														<!--begin::Table body-->
+														<tbody class="fw-bold text-gray-600">
+															<tr class="d-none">
+																
+															</tr>
+
+															<?php 
+															$term_query = new WP_Term_Query( array( 
+																'taxonomy' => 'tournament-category', 
+																'orderby'                => 'name',
+																'order'                  => 'ASC',
+																'hide_empty'             => false,
+															) );
+															
+															if ( ! empty( $term_query->terms ) ) {
+																foreach ( $term_query->terms as $term ) {
+																	?>
+
+																	<tr>
+																		<td>
+																			<a href="../../demo1/dist/apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary"><?php echo $term->name; ?></a>
+																		</td>
+																		<td class="text-end">
+																		<button type="submit" form="<?php echo 'adlt_delete_category-' . $term->term_id ;?>" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">
+																			<span class="svg-icon svg-icon-muted">
+																				<svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																					<path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.30001 16.5 8.50001 16.5C8.70001 16.5 9.00002 16.4 9.20002 16.2L12 13.4L10.6 12Z" fill="currentColor"/>
+																					<path d="M21 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22ZM13.4 12L16.2 9.20001C16.6 8.80001 16.6 8.19999 16.2 7.79999C15.8 7.39999 15.2 7.39999 14.8 7.79999L12 10.6L9.20001 7.79999C8.80001 7.39999 8.19999 7.39999 7.79999 7.79999C7.39999 8.19999 7.39999 8.80001 7.79999 9.20001L10.6 12L7.79999 14.8C7.39999 15.2 7.39999 15.8 7.79999 16.2C7.99999 16.4 8.3 16.5 8.5 16.5C8.7 16.5 9.00001 16.4 9.20001 16.2L12 13.4L14.8 16.2C15 16.4 15.3 16.5 15.5 16.5C15.7 16.5 16 16.4 16.2 16.2C16.6 15.8 16.6 15.2 16.2 14.8L13.4 12Z" fill="currentColor"/>
+																				</svg>
+																			</span>
+																		</button>
+																		
+																		
+																		<!--begin::Form-->
+																			<form id="<?php echo 'adlt_delete_category-' . $term->term_id ;?>" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">							
+																					<!--begin::Input-->
+																					<input type="hidden" name="delete" value="<?php echo $term->term_id; ?>"  />
+																					<!--end::Input-->
+																			</form>
+																		<!--end::Form-->
+																		</td>
+																	</tr>
+
+
+                                                                   <?php }
+															} else {
+																echo '<span> No Categories Found </span>';
+															}
+															?>
+
+
+															
+															
+														</tbody>
+														<!--end::Table body-->
+													</table>
+													<!--end::Table-->
+												</div>
+												<!--end::Card body-->
 											</div>
-											<!--end::Engage widget 1-->
+											<!--end::Table Widget 4-->
+											<!--end::Category widget 1-->
 										</div>
 										<!--end::Col-->
 										<!--begin::Col-->
@@ -573,22 +734,13 @@ function adline_manage_tournaments_page(){
 																	<span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
 																</td>
 																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
-																		<span class="svg-icon svg-icon-3 m-0 toggle-off">
-																			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																				<rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor" />
-																				<rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor" />
+																	<button type="button" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">
+																		<span class="svg-icon svg-icon-muted">
+																			<svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																				<path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.30001 16.5 8.50001 16.5C8.70001 16.5 9.00002 16.4 9.20002 16.2L12 13.4L10.6 12Z" fill="currentColor"/>
+																				<path d="M21 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22ZM13.4 12L16.2 9.20001C16.6 8.80001 16.6 8.19999 16.2 7.79999C15.8 7.39999 15.2 7.39999 14.8 7.79999L12 10.6L9.20001 7.79999C8.80001 7.39999 8.19999 7.39999 7.79999 7.79999C7.39999 8.19999 7.39999 8.80001 7.79999 9.20001L10.6 12L7.79999 14.8C7.39999 15.2 7.39999 15.8 7.79999 16.2C7.99999 16.4 8.3 16.5 8.5 16.5C8.7 16.5 9.00001 16.4 9.20001 16.2L12 13.4L14.8 16.2C15 16.4 15.3 16.5 15.5 16.5C15.7 16.5 16 16.4 16.2 16.2C16.6 15.8 16.6 15.2 16.2 14.8L13.4 12Z" fill="currentColor"/>
 																			</svg>
 																		</span>
-																		<!--end::Svg Icon-->
-																		<!--begin::Svg Icon | path: icons/duotune/arrows/arr089.svg-->
-																		<span class="svg-icon svg-icon-3 m-0 toggle-on">
-																			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-																				<rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor" />
-																			</svg>
-																		</span>
-																		<!--end::Svg Icon-->
 																	</button>
 																</td>
 															</tr>
@@ -621,7 +773,75 @@ function adline_manage_tournaments_page(){
 			<!--end::Page-->
 		</div>
 		<!--end::App-->
-		
+		<!--start::Modals-->
+		<div class="modal fade" tabindex="-1" id="create-category" style="margin-top:100px;">
+			<div class="modal-dialog">
+				<div class="modal-content position-absolute">
+					<div class="modal-header">
+						<h5 class="modal-title">Create New Category</h5>
+
+						<!--begin::Close-->
+						<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+							<span class="svg-icon svg-icon-2x"></span>
+						</div>
+						<!--end::Close-->
+					</div>
+
+					<?php
+						if ($_SERVER["REQUEST_METHOD"] == "POST") {
+							$term = $_POST["term"];
+							$slug = $_POST["slug"];
+
+							if($term && $slug) {
+								$newTerm = wp_insert_term( $term, 'tournament-category', array(
+									'slug'   => $slug,
+								) );
+							}
+							
+						}
+                    ?>
+
+					<div class="modal-body">
+						<!--begin::Form-->
+						<form id="adlt_create_category" class="form" method="POST" action="admin.php?page=manage_tournaments" autocomplete="off">
+							<!--begin::Input group-->
+							<div class="fv-row mb-10">
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mb-2">Title</label>
+								<!--end::Label-->
+
+								<!--begin::Input-->
+								<input type="text" name="term" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., Bow Hunting" value="" required />
+								<!--end::Input-->
+
+								<!--begin::Label-->
+								<label class="required fw-semibold fs-6 mt-5 mb-2">Slug</label>
+								<!--end::Label-->
+
+								<!--begin::Input-->
+								<input type="text" name="slug" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., bow-hunting" value="" required />
+								<!--end::Input-->
+							</div>
+							<!--end::Input group-->
+
+						</form>
+						<!--end::Form-->
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+						<!--begin::Actions-->
+						<button form="adlt_create_category" type="submit" class="btn btn-primary">
+								<span class="indicator-label">
+									Create Category
+								</span>
+						</button>
+						<!--end::Actions-->
+					</div>
+				</div>
+			</div>
+	    </div>
+		<!--end::Modals-->
 
 <?php
 }

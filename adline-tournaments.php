@@ -33,8 +33,14 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_ADMIN' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR_ADMIN', plugin_dir_path( __FILE__ ) . 'admin/' );
 }
 
+// Define admin path
+if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_INC' ) ) {
+	define( 'BORAHH_ADL_TOURNAMENTS_DIR_INC', plugin_dir_path( __FILE__ ) . 'inc/' );
+}
+
 
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';    
+include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'inc.php';    
 
 
 /**
@@ -52,6 +58,7 @@ add_action( 'admin_enqueue_scripts', function() {
 		wp_enqueue_script( 'dtb', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'datatables.bundle.js', NULL, '1.0' );
 		wp_enqueue_script( 'custom_widget', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.js', NULL, '1.0' );
 		wp_enqueue_script( 'widgets', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.bundle.js', NULL, '1.0' );
+		wp_enqueue_script( 'forms', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'forms.js', NULL, '1.0' );
 
 	}
 } );

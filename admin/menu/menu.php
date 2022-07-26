@@ -17,6 +17,16 @@ add_action( 'admin_menu', function() {
         6
     );
 
+	add_submenu_page(
+        'manage_tournaments',
+        'New Tournament',
+        'New Tournament',
+        'manage_options',
+        'single-tournament',
+        'adline_tournament_page',
+    );
+
+
     add_submenu_page(
         'manage_tournaments',
         'Tickets',
@@ -27,22 +37,7 @@ add_action( 'admin_menu', function() {
     );
 
     
-    add_submenu_page(
-        'manage_tournaments',
-        'Create Tournament',
-        'Create Tournament',
-        'manage_options',
-        'post-new.php?post_type=tournament',
-    );
 
-    add_submenu_page(
-        'manage_tournaments',
-        'Manage Categories',
-        'Manage Categories',
-        'manage_options',
-        'edit-tags.php?taxonomy=tournament-category&post_type=tournament',
-    );
-	
     add_submenu_page(
         'manage_tournaments',
         'Orders',
@@ -87,6 +82,12 @@ include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/actions.php');
  * Used for data updates
  */
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/update-category.php');
+
+// Include Single Tournament Cb
+/**
+ * Used for Create / Update Tournament
+ */
+include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/single-tournament.php');
 
 
  

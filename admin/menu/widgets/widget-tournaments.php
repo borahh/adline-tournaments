@@ -13,7 +13,7 @@
         <!--begin::Title-->
         <div class="card-title d-flex flex-column">
             <!--begin::Amount-->
-            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">69</span>
+            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2"><?php echo wp_count_posts('tournament')->publish; ?></span>
             <!--end::Amount-->
             <!--begin::Subtitle-->
             <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Tournaments</span>
@@ -49,7 +49,7 @@
                 <!--end::Menu separator-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-3">
-                    <a href="#" class="menu-link px-3">New Tournament</a>
+                    <a href="#" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#create-tournament">New Tournament</a>
                 </div>
                 <!--end::Menu item-->
                 <!--begin::Menu item-->

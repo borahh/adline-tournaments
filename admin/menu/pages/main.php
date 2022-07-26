@@ -118,3 +118,4 @@ function adline_manage_tournaments_page(){
 
 <?php
 }
+

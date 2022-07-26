@@ -49,6 +49,10 @@ include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'inc.php';
  *
  */
 add_action( 'admin_enqueue_scripts', function() {
+	$currentScreen = get_current_screen();
+	$post_type = $currentScreen->post_type;
+	$action = $currentScreen->action;
+
     wp_enqueue_style( 'adl_admin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'admin.css', NULL, '1.0' );
 	if ( $_GET['page'] == 'manage_tournaments') {
 		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
@@ -62,7 +66,9 @@ add_action( 'admin_enqueue_scripts', function() {
 		wp_enqueue_script( 'forms', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'forms.js', NULL, '1.0' );
 
 	}
-	if ( $_GET['page'] == 'update-category.php') {
+	if ( $post_type == 'tournament') {
+		// wp_deregister_script('postbox');
+		wp_enqueue_style( 'create-tournament', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'create-tournament.css', NULL, '1.0' );
 		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
 		wp_enqueue_style( 'overrides', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'overrides.css', NULL, '1.0' );
 		wp_enqueue_style( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'plugins.bundle.css', NULL, '1.0' );
@@ -82,3 +88,4 @@ require_once(ABSPATH . 'wp-admin/includes/screen.php');
 //     $currentScreen = get_current_screen();
 //     print_r($currentScreen);
 // }
+

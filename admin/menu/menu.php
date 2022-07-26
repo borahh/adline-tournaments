@@ -19,11 +19,10 @@ add_action( 'admin_menu', function() {
 
 	add_submenu_page(
         'manage_tournaments',
-        'New Tournament',
-        'New Tournament',
+        'Create Tournament',
+        'Create Tournament',
         'manage_options',
-        'single-tournament',
-        'adline_tournament_page',
+        'post-new.php?post_type=tournament',
     );
 
 

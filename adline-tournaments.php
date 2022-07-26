@@ -40,6 +40,7 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_INC' ) ) {
 }
 
 
+include BORAHH_ADL_TOURNAMENTS_DIR . 'helpers/helpers.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'inc.php';    
 
@@ -87,5 +88,18 @@ require_once(ABSPATH . 'wp-admin/includes/screen.php');
 // function wpdocs_this_screen() {
 //     $currentScreen = get_current_screen();
 //     print_r($currentScreen);
+// }
+
+// add_action( 'current_screen', 'wpdocs_this_screen' );
+ 
+/**
+ * Run code on the admin widgets page
+ */
+// function wpdocs_this_screen() {
+//     $product = new WC_Product_Variable(917);
+
+// 	echo '<pre>';
+//     print_r($product);
+// 	echo '</pre>';
 // }
 

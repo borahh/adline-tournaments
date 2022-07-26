@@ -51,11 +51,11 @@ add_action('in_admin_header', function() {
  * Redirect specific admin page
  */
 
-add_action('current_screen', function() {
-    $my_current_screen = get_current_screen();
-    if (isset($my_current_screen->base) && $my_current_screen->base == 'edit' && $my_current_screen->id == 'edit-tournament') {
-        wp_redirect('admin.php?page=manage_tournaments');
-        exit();
-    }
-});
+// add_action('current_screen', function() {
+//     $my_current_screen = get_current_screen();
+//     if (isset($my_current_screen->base) && $my_current_screen->base == 'edit' && $my_current_screen->id == 'edit-tournament') {
+//         wp_redirect('admin.php?page=manage_tournaments');
+//         exit();
+//     }
+// });
 

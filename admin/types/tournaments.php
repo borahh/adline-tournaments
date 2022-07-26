@@ -172,7 +172,7 @@ add_action('edit_form_advanced', function() {
 	$screen = get_current_screen();
 	if($screen->post_type=='tournament' && $screen->id=='tournament') {
 		?>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input type="submit" name="save" id="publish" class="button button-primary button-large" value="Update">
                         <!--start::Postuff container-->
                         </div>
 
@@ -193,3 +193,30 @@ add_action('edit_form_advanced', function() {
 	}
  }
 );
+
+/**
+ * Sync Post status with ACF field
+ */
+// run after ACF saves the $_POST['acf'] data
+add_action('acf/save_post', function( $post_id ) {
+    
+    // Get the selected post status
+    $value = get_field('status', $post_id);
+    
+    // Update current post
+    $my_post = array(
+      'ID'           => $post_id,
+      'post_status'   => $value,
+    );
+
+    // Remove the action to avoid infinite loop
+    remove_action('acf/save_post', 'my_acf_save_post', 20);
+    
+    // Update the post into the database
+    wp_update_post( $my_post );
+    
+    // Add the action back
+    add_action('acf/save_post', 'my_acf_save_post', 20);
+    
+}
+, 20);

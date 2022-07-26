@@ -33,6 +33,7 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_ADMIN' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR_ADMIN', plugin_dir_path( __FILE__ ) . 'admin/' );
 }
 
+
 // Define admin path
 if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_INC' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR_INC', plugin_dir_path( __FILE__ ) . 'inc/' );

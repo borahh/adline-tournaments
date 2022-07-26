@@ -7,6 +7,26 @@ include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/entry-pages.php';
 // include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'fields/tournaments.php';    
 
 
+
+/**
+ * Admin Widget
+ */
+function adl_get_admin_widget( $template ) {
+	return include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/widgets/' . $template . '.php');
+}
+/**
+ * Admin Manager
+ */
+function adl_get_admin_manager( $template ) {
+	return include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/managers/' . $template . '.php');
+}
+/**
+ * Admin Modals
+ */
+function adl_get_admin_modal( $template ) {
+	return include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/modals/' . $template . '.php');
+}
+
 /**
  * 
  * Remove notices from admin page

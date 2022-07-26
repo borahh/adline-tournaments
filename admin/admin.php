@@ -39,7 +39,7 @@ function adl_get_admin_form( $template ) {
  * 
  */
 add_action('in_admin_header', function() {
-    if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'create-tournament' || $_GET['post_type'] == 'tournament') {
+    if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'create-tournament' || $_GET['page'] == 'update-category.php' || $_GET['post_type'] == 'tournament') {
         remove_all_actions( 'user_admin_notices' );
         remove_all_actions( 'admin_notices' );
     }

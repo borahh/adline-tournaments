@@ -62,6 +62,12 @@ add_action( 'admin_enqueue_scripts', function() {
 		wp_enqueue_script( 'forms', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'forms.js', NULL, '1.0' );
 
 	}
+	if ( $_GET['page'] == 'update-category.php') {
+		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
+		wp_enqueue_style( 'overrides', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'overrides.css', NULL, '1.0' );
+		wp_enqueue_style( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'plugins.bundle.css', NULL, '1.0' );
+
+	}
 } );
 require_once(ABSPATH . 'wp-admin/includes/screen.php');
 

@@ -2,10 +2,10 @@
 
 /**
  * 
- * Used to Create Tournament Category
+ * Used to Update Tournament Category
  * It is a dynamic form that requires parameters, so not included here
  * 
- * Used In: managers/manager-categories.php
+ * Used In: pages/update-category.php
  * 
  */
 

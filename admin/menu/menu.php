@@ -51,6 +51,9 @@ add_action( 'admin_menu', function() {
         'edit.php?post_type=shop_order',
     );
 
+	/**
+	 * THIRD LEVEL MENUS -- HIDDEN
+	 */
 	add_submenu_page(
         'tickets',
         'Actions',
@@ -58,6 +61,14 @@ add_action( 'admin_menu', function() {
         'manage_options',
         'actions',
         'adline_actions_page',
+    );
+	add_submenu_page(
+        'tickets',
+        'Update Category',
+        'Update Category',
+        'manage_options',
+        'update-category',
+        'adline_update_category_page',
     );
     
 }, 999 );
@@ -70,6 +81,12 @@ include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/main.php');
  * Used for actual form logic and validation
  */
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/actions.php');
+
+// Include Update Data Page Cb
+/**
+ * Used for data updates
+ */
+include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/update-category.php');
 
 
  

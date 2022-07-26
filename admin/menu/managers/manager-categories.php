@@ -51,10 +51,10 @@
 
                         <tr>
                             <td>
-                                <a href="../../demo1/dist/apps/ecommerce/catalog/edit-product.html" class="text-gray-800 text-hover-primary"><?php echo $term->name; ?></a>
+                                <button type="submit" form="<?php echo 'form-update_category-' . $term->term_id ;?>" class="btn text-gray-800 text-hover-primary p-0"><?php echo $term->name; ?></button>
                             </td>
                             <td class="text-end">
-                            <button type="submit" form="<?php echo 'adlt_delete_category-' . $term->term_id ;?>" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">
+                            <button type="submit" form="<?php echo 'form-delete_category-' . $term->term_id ;?>" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">
                                 <span class="svg-icon svg-icon-muted">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.30001 16.5 8.50001 16.5C8.70001 16.5 9.00002 16.4 9.20002 16.2L12 13.4L10.6 12Z" fill="currentColor"/>
@@ -65,9 +65,17 @@
                             
                             
                             <!--begin::Form-->
-                            <form id="<?php echo 'adlt_delete_category-' . $term->term_id ;?>" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">							
+                            <form id="<?php echo 'form-delete_category-' . $term->term_id ;?>" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">							
                                     <!--begin::Input-->
                                     <input type="hidden" name="delete" value="<?php echo $term->term_id; ?>"  />
+                                    <!--end::Input-->
+                            </form>		           
+                            <!--end::Form-->
+
+                            <!--begin::Form-->
+                            <form id="<?php echo 'form-update_category-' . $term->term_id ;?>" class="form" method="POST" action="admin.php?page=update-category.php" autocomplete="off">							
+                                    <!--begin::Input-->
+                                    <input type="hidden" name="update" value="<?php echo $term->term_id; ?>"  />
                                     <!--end::Input-->
                             </form>		           
                             <!--end::Form-->

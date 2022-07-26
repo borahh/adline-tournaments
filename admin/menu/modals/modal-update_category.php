@@ -2,15 +2,15 @@
 
 /**
  * 
- * Create Category Modal
+ * Create Update Modal
  * 
  */
 ?>
-<div class="modal fade" tabindex="-1" id="create-category" style="margin-top:100px;">
+<div class="modal fade" tabindex="-1" id="update-category" style="margin-top:100px;">
     <div class="modal-dialog">
         <div class="modal-content position-absolute">
             <div class="modal-header">
-                <h5 class="modal-title">Create New Category</h5>
+                <h5 class="modal-title">Update Category</h5>
 
                 <!--begin::Close-->
                 <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -27,7 +27,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                 <!--begin::Actions-->
-                <button form="form-create_category" type="submit" class="btn btn-primary">
+                <button form="adlt_create_category" type="submit" class="btn btn-primary">
                         <span class="indicator-label">
                             Create Category
                         </span>

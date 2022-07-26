@@ -10,7 +10,7 @@
 
  ?>
 
-<form id="adlt_create_category" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">
+<form id="form-create_category" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">
     <!--begin::Input group-->
     <div class="fv-row mb-10">
         <!--begin::Label-->

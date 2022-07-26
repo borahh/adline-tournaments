@@ -65,11 +65,7 @@
                             
                             
                             <!--begin::Form-->
-                                <form id="<?php echo 'adlt_delete_category-' . $term->term_id ;?>" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">							
-                                        <!--begin::Input-->
-                                        <input type="hidden" name="delete" value="<?php echo $term->term_id; ?>"  />
-                                        <!--end::Input-->
-                                </form>
+                            <?php adl_get_admin_form('form-delete_category'); ?>		           
                             <!--end::Form-->
                             </td>
                         </tr>

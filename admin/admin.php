@@ -26,6 +26,12 @@ function adl_get_admin_manager( $template ) {
 function adl_get_admin_modal( $template ) {
 	return include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/modals/' . $template . '.php');
 }
+/**
+ * Admin Forms
+ */
+function adl_get_admin_form( $template ) {
+	return include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/forms/' . $template . '.php');
+}
 
 /**
  * 

@@ -43,77 +43,220 @@ function adline_tickets_page() {
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-fluid">
+									
 									<!--begin::Row-->
 									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
 										<!--begin::Col-->
-										<div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-											
-                                        <?php
-                                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                                $term_id = $_POST["term_id"];
-                
-                                                if(!$term_id) {
-                                                    wp_redirect('admin.php?page=manage_tournaments');
-                                                }
+										<div class="col-xl-4">
+
+                                        <div class="card card-flush h-xl-100" style="max-width: 100%">
+                                            <!--begin::Card header-->
+                                            <div class="card-header pt-7">
+                                                <!--begin::Title-->
+                                                <h3 class="card-title align-items-start flex-column">
+                                                    <span class="card-label fw-bold text-gray-800">New Ticket</span>
+                                                </h3>
+                                                <!--end::Title-->
                                                 
+                                            </div>
+                                            <!--end::Card header-->
+                                            <!--begin::Card body-->
+                                            <div class="card-body pt-2">
+                                                    <?php
+                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                        $term_id = $_POST["term_id"];
+                                                    }
+                                                    ?>
+                                                    <form id="form-create_ticket" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-10">
+                                                        <!--begin::Label-->
+                                                        <label class="required fw-semibold fs-6 mb-2">Name</label>
+                                                        <!--end::Label-->
 
-                                                $the_query = new WP_Query( array(
-                                                    'post_type' => 'product',
-                                                    'tax_query' => array(
-                                                        array (
-                                                            'taxonomy' => 'product_cat',
-                                                            'field' => 'id',
-                                                            'terms' => $term_id,
-                                                        )
-                                                    ),
-                                                ) );
-    
-                                                while ( $the_query->have_posts() ) :
-                                                    $the_query->the_post();
-                                                    echo the_title();
-                                                endwhile;
-    
-                                                
-                                                wp_reset_postdata();
-                                            } else {
-                                                wp_redirect('admin.php?page=manage_tournaments');
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="name" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., Starter Ticket" value="" required />
+                                                        <!--end::Input-->
 
-                                            }
+                                                        <!--begin::Label-->
+                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Child Level Price</label>
+                                                        <!--end::Label-->
 
-                                        ?>
-                                        <form id="form-create_ticket" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">
-                                            <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
-                                            <input type="text" name="name" value="" placeholder="name">
-                                            <input type="text" name="child_price" value="" placeholder="child price">
-                                            <input type="text" name="adult_price" value="" placeholder="adult price">
-                                            <input type="text" name="stock" value="" placeholder="stock">
-                                            <input type="submit" value="Create">
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="child_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                        <!--end::Input-->
 
-                                        </form>
+                                                        <!--begin::Label-->
+                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Adult Level Price</label>
+                                                        <!--end::Label-->
+
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="adult_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                        <!--end::Input-->
+
+                                                        <!--begin::Label-->
+                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Stock</label>
+                                                        <!--end::Label-->
+
+                                                        <!--begin::Input-->
+                                                        <input type="text" name="stock" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                        <!--end::Input-->
+
+                                                        <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
+                                                        <input type="submit" class="mt-5 btn btn-primary" value="Create">
+                                                    </div>
+                                                    <!--end::Input group-->
+
+                                                </form>
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                       
 										</div>
 										<!--end::Col-->
 										<!--begin::Col-->
-										<div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-											
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-xxl-6">
-											
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										<!--begin::Col-->
-										<div id="categories" class="col-xl-4">
-											
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div id="tournaments" class="col-xl-8">
-											
+										<div class="col-xl-8">
+
+                                            <div class="card mb-5 mb-xl-8 w-100 mw-100" style="max-width: 100%; background-color: unset;">
+                                                <!--begin::Header-->
+                                                <div class="card-header border-0 pt-5 px-0">
+                                                    <h3 class="card-title align-items-start flex-column">
+                                                        <span class="card-label fw-bold fs-3 mb-1">Manage Tickets</span>
+                                                    </h3>
+                                                </div>
+                                                <!--end::Header-->
+                                                <!--begin::Body-->
+                                                <div class="card-body pt-3 px-0 w-100 mw-100">
+                                                <?php
+                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                                        $term_id = $_POST["term_id"];
+                        
+                                                        if(!$term_id) {
+                                                            wp_redirect('admin.php?page=manage_tournaments');
+                                                        }
+                                                        
+
+                                                        $the_query = new WP_Query( array(
+                                                            'post_type' => 'product',
+                                                            'tax_query' => array(
+                                                                array (
+                                                                    'taxonomy' => 'product_cat',
+                                                                    'field' => 'id',
+                                                                    'terms' => $term_id,
+                                                                )
+                                                            ),
+                                                        ) );
+            
+                                                        if ( $the_query->have_posts() ) {
+                                                            while ( $the_query->have_posts() ) {
+                                                                $the_query->the_post();
+                                                                $product = wc_get_product( get_the_ID() );
+                                                                ?>
+
+                                                                    <div class="card w-100 mw-100 card-xxl-stretch mb-5 mb-xl-8 theme-dark-bg-body" style="background-color: #F7D9E3">
+                                                                        <!--begin::Body-->
+                                                                        <div class="card-body d-flex flex-column">
+                                                                            <!--begin::Wrapper-->
+                                                                            <div class="d-flex flex-column mb-7">
+                                                                                <!--begin::Title-->
+                                                                                <a href="#" class="text-dark text-hover-primary fw-bold fs-3"><?php echo the_title(); ?></a>
+                                                                                <!--end::Title-->
+
+                                                                                <button type="submit" form="<?php echo 'form-delete_ticket-' . get_the_ID() ;?>" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">
+                                                                                        <span class="svg-icon svg-icon-muted">
+                                                                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                <path opacity="0.3" d="M12 10.6L14.8 7.8C15.2 7.4 15.8 7.4 16.2 7.8C16.6 8.2 16.6 8.80002 16.2 9.20002L13.4 12L12 10.6ZM10.6 12L7.8 14.8C7.4 15.2 7.4 15.8 7.8 16.2C8 16.4 8.30001 16.5 8.50001 16.5C8.70001 16.5 9.00002 16.4 9.20002 16.2L12 13.4L10.6 12Z" fill="currentColor"></path>
+                                                                                                <path d="M21 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H21C21.6 2 22 2.4 22 3V21C22 21.6 21.6 22 21 22ZM13.4 12L16.2 9.20001C16.6 8.80001 16.6 8.19999 16.2 7.79999C15.8 7.39999 15.2 7.39999 14.8 7.79999L12 10.6L9.20001 7.79999C8.80001 7.39999 8.19999 7.39999 7.79999 7.79999C7.39999 8.19999 7.39999 8.80001 7.79999 9.20001L10.6 12L7.79999 14.8C7.39999 15.2 7.39999 15.8 7.79999 16.2C7.99999 16.4 8.3 16.5 8.5 16.5C8.7 16.5 9.00001 16.4 9.20001 16.2L12 13.4L14.8 16.2C15 16.4 15.3 16.5 15.5 16.5C15.7 16.5 16 16.4 16.2 16.2C16.6 15.8 16.6 15.2 16.2 14.8L13.4 12Z" fill="currentColor"></path>
+                                                                                            </svg>
+                                                                                        </span>
+                                                                                </button>
+
+                                                                                <!--begin::Form-->
+                                                                                <form id="<?php echo 'form-delete_ticket-' . get_the_ID() ;?>" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">							
+                                                                                            <!--begin::Input-->
+                                                                                            <input type="hidden" name="delete_ticket" value="<?php echo get_the_ID(); ?>"  />
+                                                                                            <!--end::Input-->
+                                                                                </form>		           
+                                                                                <!--end::Form-->
+                                                                            </div>
+                                                                            <!--end::Wrapper-->
+                                                                            <!--begin::Row-->
+                                                                            <div class="row g-0">
+                                                                                <!--begin::Col-->
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="d-flex align-items-center mb-9 me-2">
+                                                                                        <!--begin::Symbol-->
+                                                                                        <div class="symbol symbol-40px me-3">
+                                                                                            <div class="symbol-label bg-light">
+                                                                                                <!--begin::Svg Icon | path: icons/duotune/abstract/abs043.svg-->
+                                                                                                <span class="svg-icon svg-icon-1 svg-icon-dark">
+                                                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path opacity="0.3" d="M22 8H8L12 4H19C19.6 4 20.2 4.39999 20.5 4.89999L22 8ZM3.5 19.1C3.8 19.7 4.4 20 5 20H12L16 16H2L3.5 19.1ZM19.1 20.5C19.7 20.2 20 19.6 20 19V12L16 8V22L19.1 20.5ZM4.9 3.5C4.3 3.8 4 4.4 4 5V12L8 16V2L4.9 3.5Z" fill="currentColor"></path>
+                                                                                                        <path d="M22 8L20 12L16 8H22ZM8 16L4 12L2 16H8ZM16 16L12 20L16 22V16ZM8 8L12 4L8 2V8Z" fill="currentColor"></path>
+                                                                                                    </svg>
+                                                                                                </span>
+                                                                                                <!--end::Svg Icon-->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Symbol-->
+                                                                                        <!--begin::Title-->
+                                                                                        <div>
+                                                                                            <div class="fs-5 text-dark fw-bold lh-1"><?php echo $product->get_stock_quantity();?></div>
+                                                                                            <div class="fs-7 text-gray-600 fw-bold">Stock Quantity</div>
+                                                                                        </div>
+                                                                                        <!--end::Title-->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Col-->
+                                                                                <!--begin::Col-->
+                                                                                <div class="col-lg-6">
+                                                                                    <div class="d-flex align-items-center mb-9 ms-2">
+                                                                                        <!--begin::Symbol-->
+                                                                                        <div class="symbol symbol-40px me-3">
+                                                                                            <div class="symbol-label bg-light">
+                                                                                                <!--begin::Svg Icon | path: icons/duotune/abstract/abs046.svg-->
+                                                                                                <span class="svg-icon svg-icon-1 svg-icon-dark">
+                                                                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path d="M8 22C7.4 22 7 21.6 7 21V9C7 8.4 7.4 8 8 8C8.6 8 9 8.4 9 9V21C9 21.6 8.6 22 8 22Z" fill="currentColor"></path>
+                                                                                                        <path opacity="0.3" d="M4 15C3.4 15 3 14.6 3 14V6C3 5.4 3.4 5 4 5C4.6 5 5 5.4 5 6V14C5 14.6 4.6 15 4 15ZM13 19V3C13 2.4 12.6 2 12 2C11.4 2 11 2.4 11 3V19C11 19.6 11.4 20 12 20C12.6 20 13 19.6 13 19ZM17 16V5C17 4.4 16.6 4 16 4C15.4 4 15 4.4 15 5V16C15 16.6 15.4 17 16 17C16.6 17 17 16.6 17 16ZM21 18V10C21 9.4 20.6 9 20 9C19.4 9 19 9.4 19 10V18C19 18.6 19.4 19 20 19C20.6 19 21 18.6 21 18Z" fill="currentColor"></path>
+                                                                                                    </svg>
+                                                                                                </span>
+                                                                                                <!--end::Svg Icon-->
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Symbol-->
+                                                                                        <!--begin::Title-->
+                                                                                        <div>
+                                                                                            <div class="fs-5 text-dark fw-bold lh-1"><?php echo $product->get_price_html(); ?></div>
+                                                                                            <div class="fs-7 text-gray-600 fw-bold">Price Range</div>
+                                                                                        </div>
+                                                                                        <!--end::Title-->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Col-->
+                                                                            </div>
+                                                                            <!--end::Row-->
+                                                                        </div>
+                                                                    </div>
+                                                                  
+
+                                                                <?php
+                                                            }
+                                                        } else {
+                                                            echo "No Tickets Found";
+                                                        }
+                                                        
+                                                        wp_reset_postdata();
+                                                    } else {
+                                                        wp_redirect('admin.php?page=manage_tournaments');
+
+                                                    }
+
+                                                ?>
+                                                </div>
+                                                <!--begin::Body-->
+                                            </div>
+                                        
 										</div>
 										<!--end::Col-->
 									</div>

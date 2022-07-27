@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // one available for variation attribute
         $attribute = new WC_Product_Attribute();
-        $attribute->set_name( 'Age Group' );
+        $attribute->set_name( 'Age' );
         $attribute->set_options( array( 'Child', 'Adult' ) );
         $attribute->set_position( 0 );
         $attribute->set_visible( true );
@@ -42,17 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // now we need two variations for Magical and Non-magical Wizard hat
         $variation = new WC_Product_Variation();
         $variation->set_parent_id( $product->get_id() );
-        $variation->set_attributes( array( 'age_group' => 'child' ) );
+        $variation->set_attributes( array( 'age' => 'Child' ) );
         $variation->set_regular_price( $child_price ); // yep, magic hat is quite expensive
         $variation->save();
 
         $variation = new WC_Product_Variation();
         $variation->set_parent_id( $product->get_id() );
-        $variation->set_attributes( array( 'age_group' => 'adult' ) );
+        $variation->set_attributes( array( 'age' => 'Adult' ) );
         $variation->set_regular_price( $adult_price );
         $variation->save();
 
-        wp_redirect('admin.php?page=tickets');
+        ?>
+        <form id="redirectForm" class="form" method="POST" action="admin.php?page=tickets" autocomplete="off">
+            <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
+        </form>
+        <script>
+            document.getElementById("redirectForm").submit();
+        </script>
+        <?php
 
     }
     
@@ -95,6 +102,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($delete) {
             wp_delete_term($delete, 'tournament-category');
+            wp_redirect('admin.php?page=manage_tournaments');
+    }
+    
+}
+// Tournament Delete Form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $delete_tournament = $_POST["delete_tournament"];
+
+    if($delete_tournament) {
+            wp_delete_post($delete_tournament, true);
+            wp_redirect('admin.php?page=manage_tournaments');
+    }
+    
+}
+// Ticket Delete Form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $delete_ticket = $_POST["delete_ticket"];
+
+    if($delete_ticket) {
+            wp_delete_post($delete_ticket, true);
             wp_redirect('admin.php?page=manage_tournaments');
     }
     

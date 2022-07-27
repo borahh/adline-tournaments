@@ -25,16 +25,6 @@ add_action( 'admin_menu', function() {
         'post-new.php?post_type=tournament',
     );
 
-
-    add_submenu_page(
-        'manage_tournaments',
-        'Tickets',
-        'Tickets',
-        'manage_options',
-        'tickets',
-        'adline_tickets_page',
-    );
-
     
 
     add_submenu_page(
@@ -48,6 +38,17 @@ add_action( 'admin_menu', function() {
 	/**
 	 * THIRD LEVEL MENUS -- HIDDEN
 	 */
+
+    add_submenu_page(
+        'edit.php?post_type=shop_order',
+        'Tickets',
+        'Tickets',
+        'manage_options',
+        'tickets',
+        'adline_tickets_page',
+    );
+
+
 	add_submenu_page(
         'tickets',
         'Actions',

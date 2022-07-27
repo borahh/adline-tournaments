@@ -3,6 +3,7 @@
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/menu.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/tournaments.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/entry-pages.php';    
+include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'types/woo.php';    
 // include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'columns/tournaments.php';    
 // include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'fields/tournaments.php';    
 
@@ -40,7 +41,7 @@ function adl_get_admin_form( $template ) {
  */
 add_action('in_admin_header', function() {
     $my_current_screen = get_current_screen();
-    if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'create-tournament' || $_GET['page'] == 'update-category.php' || $my_current_screen->id == 'tournament') {
+    if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'create-tournament' || $_GET['page'] == 'update-category.php' || $_GET['page'] == 'tickets' || $my_current_screen->id == 'tournament') {
         remove_all_actions( 'user_admin_notices' );
         remove_all_actions( 'admin_notices' );
     }

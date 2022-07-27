@@ -55,20 +55,19 @@ add_action( 'admin_enqueue_scripts', function() {
 	$action = $currentScreen->action;
 
     wp_enqueue_style( 'adl_admin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'admin.css', NULL, '1.0' );
-	if ( $_GET['page'] == 'manage_tournaments') {
+	if ( $_GET['page'] == 'manage_tournaments' || $_GET['page'] == 'tickets') {
 		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
 		wp_enqueue_style( 'overrides', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'overrides.css', NULL, '1.0' );
 		wp_enqueue_style( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'plugins.bundle.css', NULL, '1.0' );
-		wp_enqueue_script( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'scripts.bundle.js', NULL, '1.0' );
 		wp_enqueue_script( 'plugin', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'plugins.bundle.js', NULL, '1.0' );
+		wp_enqueue_script( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'scripts.bundle.js', NULL, '1.0' );
 		wp_enqueue_script( 'dtb', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'datatables.bundle.js', NULL, '1.0' );
 		wp_enqueue_script( 'custom_widget', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.js', NULL, '1.0' );
 		wp_enqueue_script( 'widgets', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'widgets.bundle.js', NULL, '1.0' );
-		wp_enqueue_script( 'forms', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'forms.js', NULL, '1.0' );
+		// wp_enqueue_script( 'forms', BORAHH_ADL_TOURNAMENTS_DIR_JS . 'forms.js', NULL, '1.0' );
 
 	}
 	if ( $post_type == 'tournament') {
-		// wp_deregister_script('postbox');
 		wp_enqueue_style( 'create-tournament', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'create-tournament.css', NULL, '1.0' );
 		wp_enqueue_style( 'bundle', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'style.bundle.css', NULL, '1.0' );
 		wp_enqueue_style( 'overrides', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'overrides.css', NULL, '1.0' );

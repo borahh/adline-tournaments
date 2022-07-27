@@ -172,7 +172,8 @@ add_action('edit_form_advanced', function() {
 	$screen = get_current_screen();
 	if($screen->post_type=='tournament' && $screen->id=='tournament') {
 		?>
-                        <input type="submit" name="save" id="publish" class="button button-primary button-large" value="Update">
+
+                      <input type="submit" name="save" id="publish" class="button button-primary button-large" value="Update">
                         <!--start::Postuff container-->
                         </div>
 
@@ -188,7 +189,33 @@ add_action('edit_form_advanced', function() {
 			<!--end::Page-->
 		</div>
 		<!--end::App-->
-			
+        <?php
+	}
+ }
+);
+
+
+add_action('edit_form_after_title', function() {
+	$screen = get_current_screen();
+	if($screen->action !=='add' && $screen->id=='tournament') {
+
+        global $post;
+        $term_id=get_field('woo_ticket_id', $post->ID);
+		?>
+        
+        <button form="form-sendto_ticket" class="btn btn-secondary btn-sm">
+            <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
+                    <path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor"/>
+                </svg>
+            </span>
+        Manage Tickets
+        </button>
+        <form></form>
+        <form id="form-sendto_ticket" class="form" method="POST" action="admin.php?page=tickets" autocomplete="off">
+            <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
+        </form>
         <?php
 	}
  }
@@ -220,3 +247,4 @@ add_action('acf/save_post', function( $post_id ) {
     
 }
 , 20);
+

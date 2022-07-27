@@ -82,14 +82,13 @@ include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/actions.php');
  */
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/update-category.php');
 
-// Include Single Tournament Cb
+// Include Tickets Page Cb
 /**
- * Used for Create / Update Tournament
+ * Used for data updates
  */
-include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/single-tournament.php');
+include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/tickets.php');
 
 
  
 
 
-function adline_tickets_page() {}

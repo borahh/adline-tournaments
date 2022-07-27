@@ -42,7 +42,7 @@
         <!--begin::Item-->
         <div class="d-flex flex-stack">
             <!--begin::Section-->
-            <a href="post-new.php?post_type=tournament" class="text-primary fw-semibold fs-6 me-2" data-bs-toggle="modal" data-bs-target="#create-category">New Tournament</a>
+            <a href="post-new.php?post_type=tournament" class="text-primary fw-semibold fs-6 me-2">New Tournament</a>
             <!--end::Section-->
             <!--begin::Action-->
             <button type="button" class="btn btn-icon btn-sm h-auto btn-color-gray-400 btn-active-color-primary justify-content-end">

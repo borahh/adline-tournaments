@@ -68,46 +68,46 @@ function adline_tickets_page() {
                                                     }
                                                     ?>
                                                     <form id="form-create_ticket" class="form" method="POST" action="admin.php?page=actions.php" autocomplete="off">
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mb-2">Name</label>
-                                                        <!--end::Label-->
+                                                        <!--begin::Input group-->
+                                                        <div class="fv-row mb-10">
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mb-2">Name</label>
+                                                            <!--end::Label-->
 
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="name" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., Starter Ticket" value="" required />
-                                                        <!--end::Input-->
+                                                            <!--begin::Input-->
+                                                            <input type="text" name="name" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., Starter Ticket" value="" required />
+                                                            <!--end::Input-->
 
-                                                        <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Child Level Price</label>
-                                                        <!--end::Label-->
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Child Level Price</label>
+                                                            <!--end::Label-->
 
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="child_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
-                                                        <!--end::Input-->
+                                                            <!--begin::Input-->
+                                                            <input type="text" name="child_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                            <!--end::Input-->
 
-                                                        <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Adult Level Price</label>
-                                                        <!--end::Label-->
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Adult Level Price</label>
+                                                            <!--end::Label-->
 
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="adult_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
-                                                        <!--end::Input-->
+                                                            <!--begin::Input-->
+                                                            <input type="text" name="adult_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                            <!--end::Input-->
 
-                                                        <!--begin::Label-->
-                                                        <label class="required fw-semibold fs-6 mt-5 mb-2">Stock</label>
-                                                        <!--end::Label-->
+                                                            <!--begin::Label-->
+                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Stock</label>
+                                                            <!--end::Label-->
 
-                                                        <!--begin::Input-->
-                                                        <input type="text" name="stock" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
-                                                        <!--end::Input-->
+                                                            <!--begin::Input-->
+                                                            <input type="text" name="stock" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                            <!--end::Input-->
 
-                                                        <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
-                                                        <input type="submit" class="mt-5 btn btn-primary" value="Create">
-                                                    </div>
-                                                    <!--end::Input group-->
+                                                            <input type="hidden" name="term_id" value="<?php echo $term_id; ?>">
+                                                            <input type="submit" class="mt-5 btn btn-primary" value="Create">
+                                                        </div>
+                                                        <!--end::Input group-->
 
-                                                </form>
+                                                    </form>
                                             </div>
                                             <!--end::Card body-->
                                         </div>

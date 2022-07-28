@@ -1,33 +1,18 @@
 <?php
 
-function adlt_create_update_product_variation( $product_id, $variation_data ){
+function adlt_user_bought_ticket($product_ids)
+{
+    $product_ids= array ('2258','2253','2242');//for testing
+    global $woocommerce;
+    $user_id = get_current_user_id();
+    $current_user= wp_get_current_user();
+    $customer_email = $current_user->email;
 
-    if(isset($variation_data['variation_id'])) {
 
-      $variation_id = $variation_data['variation_id'];
+    foreach($product_ids as $item):
+        if ( wc_customer_bought_product( $customer_email, $user_id, $item) )
+           return true;
+    endforeach; 
 
-    } else {
-
-      // if the variation doesn't exist then create it
-
-      // Get the Variable product object (parent)
-      $product = wc_get_product($product_id);
-
-      var_dump($product);
-
-      $variation_post = array(
-          'post_title'  => 'TITLE',
-          'post_name'   => 'product-'.$product_id.'-variation',
-          'post_status' => 'publish',
-          'post_parent' => $product_id,
-          'post_type'   => 'product_variation',
-      );
-
-    //   // Creating the product variation
-    //   $variation_id = wp_insert_post( $variation_post );
-
-    }
-
-    // ...
-
+    return false;
 }

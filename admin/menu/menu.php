@@ -56,6 +56,7 @@ add_action( 'admin_menu', function() {
         'update-category',
         'adline_update_category_page',
     );
+	
     
 }, 999 );
 
@@ -79,6 +80,8 @@ include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/update-category.php');
  * Used for data updates
  */
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/tickets.php');
+
+
 
 
  

@@ -25,15 +25,6 @@ add_action( 'admin_menu', function() {
         'post-new.php?post_type=tournament',
     );
 
-    
-
-    add_submenu_page(
-        'manage_tournaments',
-        'Orders',
-        'Orders',
-        'manage_options',
-        'edit.php?post_type=shop_order',
-    );
 
 	/**
 	 * THIRD LEVEL MENUS -- HIDDEN

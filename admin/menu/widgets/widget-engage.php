@@ -17,7 +17,7 @@
             <span class="me-2">Manage Categories, Tickets and
             <br />
             <span class="position-relative d-inline-block text-danger">
-                <a href="../../demo1/dist/pages/user-profile/overview.html" class="text-danger opacity-75-hover">Tournaments</a>
+                <a href="#" class="text-danger opacity-75-hover">Tournaments</a>
                 <!--begin::Separator-->
                 <span class="position-absolute opacity-15 bottom-0 start-0 border-4 border-danger border-bottom w-100"></span>
                 <!--end::Separator-->

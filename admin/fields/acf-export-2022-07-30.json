@@ -1,0 +1,366 @@
+[
+    {
+        "key": "group_62e00d898054b",
+        "title": "Settings",
+        "fields": [
+            {
+                "key": "field_62e00d9cc0756",
+                "label": "Basic Details",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62e00e091fcf3",
+                "label": "Woo Ticket ID",
+                "name": "woo_ticket_id",
+                "type": "acfe_hidden",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "default_value": 0
+            },
+            {
+                "key": "field_62e05638ef76d",
+                "label": "Entry ID",
+                "name": "entry_id",
+                "type": "acfe_hidden",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "default_value": 0
+            },
+            {
+                "key": "field_62e014676f7b8",
+                "label": "Status",
+                "name": "status",
+                "type": "acfe_post_statuses",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "post_status": [
+                    "publish",
+                    "draft",
+                    "trash"
+                ],
+                "field_type": "select",
+                "default_value": [
+                    "publish"
+                ],
+                "return_format": "name",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 1,
+                "ajax": 0,
+                "search_placeholder": "",
+                "allow_custom": 0,
+                "choices": [],
+                "placeholder": "",
+                "layout": "",
+                "toggle": 0
+            },
+            {
+                "key": "field_62e00e3c1fcf4",
+                "label": "Select Category",
+                "name": "select_category",
+                "type": "taxonomy",
+                "instructions": "Select a category for this tournament",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "taxonomy": "tournament-category",
+                "field_type": "select",
+                "allow_null": 0,
+                "add_term": 0,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "multiple": 0
+            },
+            {
+                "key": "field_62e00ee97e3d7",
+                "label": "Featured Image",
+                "name": "featured_image",
+                "type": "image",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_62e00f0f7e3d8",
+                "label": "Description",
+                "name": "description",
+                "type": "wysiwyg",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_62e00dd1f2b6a",
+                "label": "Schedule",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62e00fd156b35",
+                "label": "Date and Time",
+                "name": "date_and_time",
+                "type": "date_time_picker",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "display_format": "d\/m\/Y g:i a",
+                "return_format": "F j, Y g:i a",
+                "first_day": 1
+            },
+            {
+                "key": "field_62e00dea1fcf0",
+                "label": "More Settings",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62e00ff256b36",
+                "label": "Zone Map",
+                "name": "zone_map",
+                "type": "file",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_62e0101156b37",
+                "label": "Rules and Regulations Page",
+                "name": "rules_and_regulations_page",
+                "type": "post_object",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "post_type": [
+                    "page"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "save_custom": 0,
+                "save_post_status": "publish",
+                "acfe_bidirectional": {
+                    "acfe_bidirectional_enabled": "0"
+                },
+                "ui": 1
+            },
+            {
+                "key": "field_62e234bbee35d",
+                "label": "Rules and Regulations",
+                "name": "rules_and_regulations_",
+                "type": "file",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "uploader": "",
+                "return_format": "url",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "",
+                "library": "all"
+            },
+            {
+                "key": "field_62e23454ee35a",
+                "label": "Sponsors",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62e2347dee35c",
+                "label": "Gallery",
+                "name": "gallery",
+                "type": "gallery",
+                "instructions": "Set a Featured Image",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "insert": "append",
+                "library": "all",
+                "min": "",
+                "max": "",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_62e23ac97e55e",
+                "label": "Orders",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_62e437e397199",
+                "label": "New Orders",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "card mw-75 p-7 m-7 adlt-rwmb",
+                    "id": ""
+                },
+                "message": "",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "tournament"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "acfe_display_title": "",
+        "acfe_autosync": "",
+        "acfe_form": 0,
+        "acfe_meta": "",
+        "acfe_note": ""
+    }
+]

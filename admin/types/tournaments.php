@@ -279,7 +279,7 @@ function prepare_acf_message_content( $field ) {
                         
                         <!--begin::Description-->
                         <div class="flex-grow-1 ps-5">
-                            <a href="#" class="text-gray-800 text-hover-primary fw-bold" style="font-size: 15px;">Order ID: #' . $orderID . '</a>
+                            <a href="post.php?post=' . $orderID . '&action=edit" class="text-gray-800 text-hover-primary fw-bold" style="font-size: 15px;">Order ID: #' . $orderID . '</a>
                             <span class="text-muted fw-semibold d-block" style="font-size: 13px;">' . $user->display_name . '</span>
                         </div>
                         <!--end::Description-->

@@ -5,7 +5,6 @@
  * Register Manage Tournaments Admin Menu Page
  */
 add_action( 'admin_menu', function() {
-	remove_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' ); 
 
     add_menu_page( 
         __( 'Tournaments', 'adline-tournaments' ),

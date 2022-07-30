@@ -173,6 +173,7 @@ add_action('edit_form_advanced', function() {
 	if($screen->post_type=='tournament' && $screen->id=='tournament') {
 		?>
 
+
                       <input type="submit" name="save" id="publish" class="button button-primary button-large" value="Update">
                         <!--start::Postuff container-->
                         </div>
@@ -247,4 +248,61 @@ add_action('acf/save_post', function( $post_id ) {
     
 }
 , 20);
+
+
+function prepare_acf_message_content( $field ) { 
+
+    if ( is_admin() ) {
+
+        global $post;
+        $categoryID = get_field('woo_ticket_id', $post->ID);
+
+        $orders = get_term_meta($categoryID, 'subscribed_users', true);
+        
+        
+        $orderArr = explode(', ', $orders);
+        
+        
+        if( $orders && $orderArr ) {
+
+            $field['message'] = '<div class="card-body pt-2">';
+            foreach( $orderArr as $orderID) {
+                    $order = new WC_Order( $orderID );
+                    $user = get_user_by( 'id', $order->get_user_id() );
+                    $date = $order->get_date_created();
+
+                    $field['message'] .= '                   
+                    <div class="d-flex align-items-center">
+                        <!--begin::Bullet-->
+                        <span class="bullet bullet-vertical h-40px bg-success"></span>
+                        <!--end::Bullet-->
+                        
+                        <!--begin::Description-->
+                        <div class="flex-grow-1 ps-5">
+                            <a href="#" class="text-gray-800 text-hover-primary fw-bold" style="font-size: 15px;">Order ID: #' . $orderID . '</a>
+                            <span class="text-muted fw-semibold d-block" style="font-size: 13px;">' . $user->display_name . '</span>
+                        </div>
+                        <!--end::Description-->
+                        <span class="text-muted fw-bold d-block">' . $date->date("F j, Y, g:i:s A T") . '</span>
+                    </div>'; 
+            }
+
+            $field['message'] .= '</div>';
+
+
+
+        } else {
+            $field['message'] = "No Orders Found";
+
+        }
+        return $field ;
+
+
+    }
+
+
+}
+
+add_filter('acf/prepare_field/key=field_62e437e397199', 'prepare_acf_message_content') ;
+
 

@@ -71,7 +71,8 @@ class Elementor_Dynamic_Tag_Featured_Image extends \Elementor\Core\DynamicTags\T
 	 * @return void
 	 */
 	public function render() {
-		echo 'c';
+		global $post;
+		echo get_field('featured_image', $post->ID);
 	}
 
 }

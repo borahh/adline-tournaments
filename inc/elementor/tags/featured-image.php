@@ -58,7 +58,7 @@ class Elementor_Dynamic_Tag_Featured_Image extends \Elementor\Core\DynamicTags\T
 	 * @return array Dynamic tag categories.
 	 */
 	public function get_categories() {
-		return [ \Elementor\Modules\DynamicTags\Module::NUMBER_CATEGORY ];
+		return [ \Elementor\Modules\DynamicTags\Module::IMAGE_CATEGORY ];
 	}
 
 	/**

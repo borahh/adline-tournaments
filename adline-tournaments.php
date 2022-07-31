@@ -39,10 +39,16 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_INC' ) ) {
 	define( 'BORAHH_ADL_TOURNAMENTS_DIR_INC', plugin_dir_path( __FILE__ ) . 'inc/' );
 }
 
+// Define admin path
+if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_TAGS' ) ) {
+	define( 'BORAHH_ADL_TOURNAMENTS_DIR_TAGS', plugin_dir_path( __FILE__ ) . 'inc/elementor/' );
+}
+
 
 include BORAHH_ADL_TOURNAMENTS_DIR . 'helpers/helpers.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'inc.php';    
+include BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags.php';    
 
 
 /**

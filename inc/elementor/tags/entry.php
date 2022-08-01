@@ -1,6 +1,6 @@
 <?php
 
-class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Data_Tag {
+class Elementor_Dynamic_Entry extends \Elementor\Core\DynamicTags\Data_Tag {
 
 	/**
 	 * Get dynamic tag name.
@@ -12,7 +12,7 @@ class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return string Dynamic tag name.
 	 */
 	public function get_name() {
-		return 'rules-regulations';
+		return 'entry';
 	}
 
 	/**
@@ -25,7 +25,7 @@ class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return string Dynamic tag title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Rules and Regulations', 'elementor-random-number-dynamic-tag' );
+		return esc_html__( 'Entry' );
 	}
 
 	/**
@@ -67,13 +67,7 @@ class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return void
 	 */
 	public function get_value( array $options = array() ) {
-        $value = get_field( 'rules_and_regulations_page' );
-        
-        if (!$value) {
-            $value = get_field( 'rules_and_regulations_' );
-            return $value;
-        }
-        $value = get_permalink( $value );
+        $value = get_permalink() . '-entry';
         return $value;
 	}
 

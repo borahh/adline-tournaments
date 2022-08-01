@@ -33,7 +33,11 @@ add_action( 'elementor/dynamic_tags/register', function( $dynamic_tags_manager )
 add_action( 'elementor/dynamic_tags/register', function ( $dynamic_tags_manager ) {
 
 	require_once( BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags/rules.php' );
+	require_once( BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags/entry.php' );
+	require_once( BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags/leaderboard.php' );
 
 	$dynamic_tags_manager->register( new \Elementor_Dynamic_Tag_Rules );
+	$dynamic_tags_manager->register( new \Elementor_Dynamic_Entry );
+	$dynamic_tags_manager->register( new \Elementor_Dynamic_Leaderboard );
 
 } );

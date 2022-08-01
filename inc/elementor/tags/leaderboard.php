@@ -67,7 +67,7 @@ class Elementor_Dynamic_Leaderboard extends \Elementor\Core\DynamicTags\Data_Tag
 	 * @return void
 	 */
 	public function get_value( array $options = array() ) {
-        $value = get_permalink() . '-leaderboard';
+        $value = rtrim(get_permalink(),'/') . '-leaderboard/';
         return $value;
 	}
 

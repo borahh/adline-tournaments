@@ -67,7 +67,7 @@ class Elementor_Dynamic_Entry extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return void
 	 */
 	public function get_value( array $options = array() ) {
-        $value = get_permalink() . '-entry';
+        $value = rtrim(get_permalink(),'/') . '-entry/';
         return $value;
 	}
 

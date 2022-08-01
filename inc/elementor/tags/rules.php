@@ -1,6 +1,6 @@
 <?php
 
-class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Tag {
+class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Data_Tag {
 
 	/**
 	 * Get dynamic tag name.
@@ -66,8 +66,15 @@ class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Tag {
 	 * @access public
 	 * @return void
 	 */
-	public function render() {
-		echo "okkkk";
+	public function get_value( array $options = array() ) {
+        $value = get_field( 'rules_and_regulations_page' );
+        
+        if (!$value) {
+            $value = get_field( 'rules_and_regulations_' );
+            return $value;
+        }
+        $value = get_permalink( $value );
+        return $value;
 	}
 
 }

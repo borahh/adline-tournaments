@@ -202,6 +202,8 @@ add_action('edit_form_after_title', function() {
 
         global $post;
         $term_id=get_field('woo_ticket_id', $post->ID);
+        $form_id=get_field('form_id', $post->ID);
+        
 		?>
 
 
@@ -216,7 +218,7 @@ add_action('edit_form_after_title', function() {
         Manage Tickets
         </button>
 
-        <button class="btn btn-secondary btn-sm ms-10">
+        <a href="admin.php?page=wpforms-builder&view=fields&form_id=<?php echo $form_id; ?>" class="btn btn-secondary btn-sm ms-10">
             <span class="svg-icon svg-icon-muted svg-icon-2hx">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
@@ -224,7 +226,7 @@ add_action('edit_form_after_title', function() {
                 </svg>
             </span>
         Manage Entry Form
-        </button>
+        </a>
 
         <form></form>
         <form id="form-sendto_ticket" class="form" method="POST" action="admin.php?page=tickets" autocomplete="off">

@@ -39,6 +39,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
 
        update_field('woo_ticket_id', $term['term_id'], $post_id);
        update_field('entry_id', $entryID, $post_id);
+       update_field('form_id', $form, $post_id);
   
       }
   }

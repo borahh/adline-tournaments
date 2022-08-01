@@ -32,8 +32,8 @@ add_action( 'elementor/dynamic_tags/register', function( $dynamic_tags_manager )
 
 add_action( 'elementor/dynamic_tags/register', function ( $dynamic_tags_manager ) {
 
-	require_once( BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags/featured-image.php' );
+	require_once( BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags/rules.php' );
 
-	$dynamic_tags_manager->register( new \Elementor_Dynamic_Tag_Featured_Image );
+	$dynamic_tags_manager->register( new \Elementor_Dynamic_Tag_Rules );
 
 } );

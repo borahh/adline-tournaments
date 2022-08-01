@@ -1,44 +1,37 @@
 <?php
 
-/**
- * Elementor Dynamic Tag - Featured Imagge
- *
- * Elementor dynamic tag that returns a Featured Imagge.
- *
- * @since 1.0.0
- */
-class Elementor_Dynamic_Tag_Featured_Image extends \Elementor\Core\DynamicTags\Tag {
+class Elementor_Dynamic_Tag_Rules extends \Elementor\Core\DynamicTags\Tag {
 
 	/**
 	 * Get dynamic tag name.
 	 *
-	 * Retrieve the name of the Featured Imagge tag.
+	 * Retrieve the name of the random number tag.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Dynamic tag name.
 	 */
 	public function get_name() {
-		return 'tournament-featured-img';
+		return 'rules-regulations';
 	}
 
 	/**
 	 * Get dynamic tag title.
 	 *
-	 * Returns the title of the Featured Imagge tag.
+	 * Returns the title of the random number tag.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return string Dynamic tag title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Featured Imagge', 'adline-tournaments' );
+		return esc_html__( 'Rules & Regulations', 'elementor-random-number-dynamic-tag' );
 	}
 
 	/**
 	 * Get dynamic tag groups.
 	 *
-	 * Retrieve the list of groups the Featured Imagge tag belongs to.
+	 * Retrieve the list of groups the random number tag belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -51,14 +44,17 @@ class Elementor_Dynamic_Tag_Featured_Image extends \Elementor\Core\DynamicTags\T
 	/**
 	 * Get dynamic tag categories.
 	 *
-	 * Retrieve the list of categories the Featured Imagge tag belongs to.
+	 * Retrieve the list of categories the random number tag belongs to.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 * @return array Dynamic tag categories.
 	 */
 	public function get_categories() {
-		return [ \Elementor\Modules\DynamicTags\Module::IMAGE_CATEGORY ];
+		return [ 
+            \Elementor\Modules\DynamicTags\Module::URL_CATEGORY,
+            \Elementor\Modules\DynamicTags\Module::POST_META_CATEGORY,
+        ];
 	}
 
 	/**
@@ -71,8 +67,7 @@ class Elementor_Dynamic_Tag_Featured_Image extends \Elementor\Core\DynamicTags\T
 	 * @return void
 	 */
 	public function render() {
-		global $post;
-		echo get_field('featured_image', $post->ID);
+		echo "okkkk";
 	}
 
 }

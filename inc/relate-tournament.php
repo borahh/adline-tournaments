@@ -22,11 +22,20 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
           'product_cat', // the taxonomy
           );
 
-         $entryID = wp_insert_post( array(
+        $form = wp_insert_post( array(
+            'post_type' => 'wpforms',
+            'post_title' => get_the_title($post->ID) . ' Entry Form',
+            'post_status' => 'publish'
+        ));
+        
+        $sc = '[wpforms id="' . $form . '"]';
+
+        $entryID = wp_insert_post( array(
             'post_type' => 'entry-page',
             'post_title' => get_the_title($post->ID) . ' Entry',
+            'post_content' => $sc,
             'post_status' => 'publish'
-         ));
+        ));
 
        update_field('woo_ticket_id', $term['term_id'], $post_id);
        update_field('entry_id', $entryID, $post_id);

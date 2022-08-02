@@ -6,6 +6,7 @@ add_shortcode( 'ticket-list', function( $a ) {
     ), $a, 'ticket-list' );
  
     
+        echo $a['ID'];
         $the_query = new WP_Query( array(
             'post_type' => 'product',
             'tax_query' => array(

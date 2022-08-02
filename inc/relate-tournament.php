@@ -31,7 +31,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
         $sc = '[wpforms id="' . $form . '"]';
 
         $entryID = wp_insert_term(
-            get_the_title($post->ID) . ' Entry Form',
+            get_the_title($post->ID) . ' Entry Group',
             'entry-category', // the taxonomy
             );
         // $entryID = wp_insert_post( array(

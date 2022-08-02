@@ -48,6 +48,7 @@ if ( ! defined( 'BORAHH_ADL_TOURNAMENTS_DIR_TAGS' ) ) {
 include BORAHH_ADL_TOURNAMENTS_DIR . 'helpers/helpers.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'admin.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'inc.php';    
+include BORAHH_ADL_TOURNAMENTS_DIR_INC . 'shortcodes/ticket-list.php';    
 include BORAHH_ADL_TOURNAMENTS_DIR_TAGS . 'tags.php';    
 
 

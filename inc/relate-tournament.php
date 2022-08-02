@@ -41,6 +41,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
         $regID = wp_insert_post( array(
             'post_type' => 'reg-page',
             'post_title' => get_the_title($post->ID) . ' Registration',
+            'post_content' => '[ticket-list ID=' . $term['term_id'] . ']' ,
             'post_status' => 'publish'
         ));
 

@@ -3,7 +3,7 @@
 add_shortcode( 'ticket-list', function( $atts ) {
     $atts = shortcode_atts( array(
         'ID' => 0,
-    ), $atts, 'ticket-list' );
+    ), $atts );
  
     
         echo $atts['ID'];

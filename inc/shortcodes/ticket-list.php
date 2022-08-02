@@ -12,7 +12,7 @@ add_shortcode( 'ticket-list', function( $a ) {
                 array (
                     'taxonomy' => 'product_cat',
                     'field' => 'id',
-                    'terms' => $term_id,
+                    'terms' => $a['ID'],
                 )
             ),
         ));

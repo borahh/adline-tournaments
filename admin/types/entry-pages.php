@@ -100,37 +100,3 @@ add_action( 'init', function() {
     register_post_type( 'entry-post', $args );
 });
 
-/**
- * Create taxonomies
- *
- */
-
-add_action( 'init', function() {
-    // Add new taxonomy
-    $labels = array(
-        'name'              => _x( 'Categories', 'taxonomy general name', 'adline-tournaments' ),
-        'singular_name'     => _x( 'Category', 'taxonomy singular name', 'adline-tournaments' ),
-        'search_items'      => __( 'Search Categories', 'adline-tournaments' ),
-        'all_items'         => __( 'All Categories', 'adline-tournaments' ),
-        'parent_item'       => __( 'Parent Category', 'adline-tournaments' ),
-        'parent_item_colon' => __( 'Parent Category:', 'adline-tournaments' ),
-        'edit_item'         => __( 'Edit Category', 'adline-tournaments' ),
-        'update_item'       => __( 'Update Category', 'adline-tournaments' ),
-        'add_new_item'      => __( 'Add New Category', 'adline-tournaments' ),
-        'new_item_name'     => __( 'New Category Name', 'adline-tournaments' ),
-        'menu_name'         => __( 'Category', 'adline-tournaments' ),
-    );
- 
-    $args = array(
-        'hierarchical'      => false,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_in_menu'       => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'entry-category' ),
-
-    );
- 
-    register_taxonomy( 'entry-category', array( 'entry-post' ), $args );
-}, 0 );

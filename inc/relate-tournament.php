@@ -32,7 +32,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
 
         $entryID = wp_insert_term(
             get_the_title($post->ID) . ' Entry Form',
-            'product_cat', // the taxonomy
+            'entry-category', // the taxonomy
             );
         // $entryID = wp_insert_post( array(
         //     'post_type' => 'entry-page',

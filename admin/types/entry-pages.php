@@ -75,8 +75,8 @@ add_action( 'init', function() {
     $args = array(
         'hierarchical'      => false,
         'labels'            => $labels,
-        'show_ui'           => false,
-        'show_in_menu'       => false,
+        'show_ui'           => true,
+        'show_in_menu'       => true,
         'show_admin_column' => true,
         'query_var'         => true,
         'rewrite'           => array( 'slug' => 'entry-category' ),

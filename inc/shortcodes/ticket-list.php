@@ -1,6 +1,6 @@
 <?php
 
-add_shortcode( 'ticket-list', function( $atts ) {
+add_shortcode( 'ticket-list', function( $atts = '' ) {
     $atts = shortcode_atts( array(
         'ID' => 0,
     ), $atts );

@@ -1,7 +1,6 @@
 <?php 
 
 
-flush_rewrite_rules();
 /**
  *  This file is used to register Custom Post type "TOURNAMENTS" and its custom TAXONOMIES
  **/

@@ -87,7 +87,7 @@ add_action( 'init', function() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        // 'rewrite'            => array( 'slug' => '/', 'with_front' => false ),
+        'rewrite'            => array( 'slug' => '/', 'with_front' => false ),
         'capability_type'    => 'page',
         'has_archive'        => true,
         'hierarchical'       => false,

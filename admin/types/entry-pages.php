@@ -132,5 +132,5 @@ add_action( 'init', function() {
 
     );
  
-    register_taxonomy( 'entry-category', array( 'entry-page' ), $args );
+    register_taxonomy( 'entry-category', array( 'entry-post' ), $args );
 }, 0 );

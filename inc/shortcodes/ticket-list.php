@@ -3,12 +3,9 @@
 add_shortcode( 'ticket-list', function( $a ) {
     $a = shortcode_atts( array(
         'ID' => 0,
-        'baz' => 'default baz'
     ), $a, 'ticket-list' );
  
-    if ( $a['ID'] == 0) {
-        return 'Please set correct Woo Ticket ID';
-    } else {
+    
         $the_query = new WP_Query( array(
             'post_type' => 'product',
             'tax_query' => array(
@@ -30,5 +27,4 @@ add_shortcode( 'ticket-list', function( $a ) {
         } else {
             return "No Tickets available";
         }
-    }
 } );

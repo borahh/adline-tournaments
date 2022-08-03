@@ -16,10 +16,16 @@ add_action( 'admin_menu', function() {
         6
     );
 
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Settings',
+		'menu_title'	=> 'Tournament Settings',
+		'parent_slug'	=> 'manage_tournaments',
+	));
+
 	add_submenu_page(
         'manage_tournaments',
-        'Create Tournament',
-        'Create Tournament',
+        'Settings',
+        'Settings',
         'manage_options',
         'post-new.php?post_type=tournament',
     );

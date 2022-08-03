@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $attribute->set_name( 'Age' );
         $attribute->set_options( array( 'Child', 'Adult' ) );
         $attribute->set_position( 0 );
-        $attribute->set_visible( fasle );
+        $attribute->set_visible( false );
         $attribute->set_variation( true ); // here it is
             
         $product->set_attributes( array( $attribute ) );

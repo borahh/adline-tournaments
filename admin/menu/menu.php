@@ -69,7 +69,7 @@ add_action( 'admin_menu', function() {
        acf_add_options_sub_page(array(
             'page_title'  => __('Social Settings'),
             'menu_title'  => __('Social'),
-            'parent_slug' => 'manage_tournaments',
+            'parent_slug' => 'options-general',
         ));
     }
 // Include Tournament Page Cb

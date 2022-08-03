@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Name and image would be enough
         $product->set_name( $name );
         $product->set_image_id( $img );
+        $product->set_catalog_visibility( false );
+
 
 
         // one available for variation attribute
@@ -28,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $attribute->set_name( 'Age' );
         $attribute->set_options( array( 'Child', 'Adult' ) );
         $attribute->set_position( 0 );
-        $attribute->set_catalog_visibility( false );
+        $attribute->set_visible( false );
         $attribute->set_variation( true ); // here it is
             
         $product->set_attributes( array( $attribute ) );

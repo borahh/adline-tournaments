@@ -38,6 +38,12 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
             'post_status' => 'publish'
         ));
 
+        $leaderboardID = wp_insert_post( array(
+            'post_type' => 'leaderboard',
+            'post_title' => get_the_title($post->ID),
+            'post_status' => 'publish'
+        ));
+
         $regID = wp_insert_post( array(
             'post_type' => 'reg-page',
             'post_title' => get_the_title($post->ID),
@@ -47,6 +53,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
 
        update_field('entry_id', $entryID, $post_id);
        update_field('reg_id', $regID, $post_id);
+       update_field('leaderboard_id', $leaderboardID, $post_id);
        update_field('woo_ticket_id', $term['term_id'], $post_id);
        update_field('form_id', $form, $post_id);
   

@@ -12,12 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adult_price = $_POST["adult_price"];
     $stock = $_POST["stock"];
 
+    $img = get_field( 'adlt_ticket_icon', 'options');
+
     if($term_id && $name &&  $child_price && $adult_price && $stock) {
         // Creating a variable product
         $product = new WC_Product_Variable();
 
         // Name and image would be enough
         $product->set_name( $name );
+        $product->set_image_id( $img );
 
 
         // one available for variation attribute

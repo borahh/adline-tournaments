@@ -24,11 +24,6 @@ add_action( 'admin_menu', function() {
         'post-new.php?post_type=tournament',
     );
 
-    acf_add_options_sub_page(array(
-		'page_title' 	=> 'Settings',
-		'menu_title'	=> 'Tournament Settings',
-		'parent_slug'	=> 'manage_tournaments',
-	));
 
 
 	/**
@@ -65,6 +60,16 @@ add_action( 'admin_menu', function() {
     
 }, 999 );
 
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Tournament Settings',
+		'menu_title'	=> 'Settings',
+		'parent_slug'	=> 'manage_tournaments',
+	));
+	
+}
 // Include Tournament Page Cb
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/main.php');
 

@@ -1,6 +1,6 @@
 <?php
 
-class Elementor_Dynamic_Entry extends \Elementor\Core\DynamicTags\Data_Tag {
+class Elementor_Dynamic_Register extends \Elementor\Core\DynamicTags\Data_Tag {
 
 	/**
 	 * Get dynamic tag name.
@@ -12,7 +12,7 @@ class Elementor_Dynamic_Entry extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return string Dynamic tag name.
 	 */
 	public function get_name() {
-		return 'entry';
+		return 'register';
 	}
 
 	/**
@@ -25,7 +25,7 @@ class Elementor_Dynamic_Entry extends \Elementor\Core\DynamicTags\Data_Tag {
 	 * @return string Dynamic tag title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Entry' );
+		return esc_html__( 'Registration' );
 	}
 
 	/**

@@ -20,8 +20,10 @@ add_shortcode( 'ticket-list', function( $atts ) {
                 if ( $the_query->have_posts() ) {
                     while ( $the_query->have_posts() ) {
                         $the_query->the_post();
-                        echo the_title();
+                        ?>
+                        <a href="<?php echo esc_url( get_permalink(get_the_ID()) ); ?>"><?php esc_html_e( the_title(), 'textdomain' ); ?></a>
 
+                        <?php
                     }
 
                 } else {

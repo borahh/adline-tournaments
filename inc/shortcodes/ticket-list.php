@@ -1,14 +1,13 @@
 <?php
 
-function wpdocs_bartag_func( $atts ) {
+add_shortcode( 'ticket-list', function( $atts ) {
     $atts = shortcode_atts(
         array(
-            'xyz' => 'no foo',
+            'q' => 'no foo',
         ), $atts, 'ticket-list' );
  
-    return 'ticket-list: ' . esc_html( $atts['xyz'] );
-}
-add_shortcode( 'ticket-list', 'wpdocs_bartag_func' );
+    return 'ticket-list: ' . esc_html( $atts['q'] );
+} );
 
 // add_shortcode( 'ticket-list', function( $atts = '' ) {
 //     $atts = shortcode_atts( array(

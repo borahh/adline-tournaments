@@ -61,15 +61,7 @@ add_action( 'admin_menu', function() {
 }, 999 );
 
 
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Tournament Settings',
-		'menu_title'	=> 'Settings',
-		'parent_slug'	=> 'manage_tournaments',
-	));
-	
-}
+
 // Include Tournament Page Cb
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/main.php');
 

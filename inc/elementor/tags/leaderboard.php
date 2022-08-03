@@ -67,7 +67,8 @@ class Elementor_Dynamic_Leaderboard extends \Elementor\Core\DynamicTags\Data_Tag
 	 * @return void
 	 */
 	public function get_value( array $options = array() ) {
-        $value = 'leaderboard/' . get_queried_object()->post_name;
+        $value = get_site_url() . 'leaderboard/' . get_queried_object()->post_name;
+
         return $value;
 	}
 

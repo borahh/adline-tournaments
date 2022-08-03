@@ -4,9 +4,9 @@ function wpdocs_bartag_func( $atts ) {
     $atts = shortcode_atts(
         array(
             'ID' => 'no foo',
-        ), $atts, 'bartag' );
+        ), $atts, 'ticket-list' );
  
-    return 'bartag: ' . esc_html( $atts['foo'] );
+    return 'ticket-list: ' . esc_html( $atts['foo'] );
 }
 add_shortcode( 'ticket-list', 'wpdocs_bartag_func' );
 

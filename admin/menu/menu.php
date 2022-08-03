@@ -63,15 +63,6 @@ add_action( 'admin_menu', function() {
 }, 999 );
 
 
-// Check function exists.
-    if( function_exists('acf_add_options_sub_page') ) {
-
-       acf_add_options_sub_page(array(
-            'page_title'  => __('Social Settings'),
-            'menu_title'  => __('Social'),
-            'parent_slug' => 'options-general',
-        ));
-    }
 // Include Tournament Page Cb
 include( BORAHH_ADL_TOURNAMENTS_DIR_ADMIN . 'menu/pages/main.php');
 

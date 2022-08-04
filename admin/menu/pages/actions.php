@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $slug = $_POST["slug"];
 
     if($term && $slug) {
-        $newTerm = wp_insert_term( $term, 'tournament-category', array(
+        $newTerm = wp_insert_term( $term, 'product_cat', array(
             'slug'   => $slug,
         ) );
         wp_redirect('admin.php?page=manage_tournaments');

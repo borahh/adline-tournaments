@@ -17,10 +17,10 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
       $productID = get_field( 'woo_ticket_id', $post_id );
   
       if($productID == 0) {
-         $term = wp_insert_term(
+        $term = wp_insert_term(
           'Woo Ticket #' . $post->ID,   // the term 
           'product_cat', // the taxonomy
-          );
+        );
 
         $form = wp_insert_post( array(
             'post_type' => 'wpforms',
@@ -48,7 +48,6 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
             'post_type' => 'reg-page',
             'post_title' => "Choose Tickets",
             'post_name' => get_the_title($post->ID),
-            // 'post_content' => '[ticket-list q="' . $term['term_id'] . '"]' ,
             'post_content' => '[woo-multi-cart link="false" cats="' . $term['term_id'] . '"]' ,
             'post_status' => 'publish'
         ));

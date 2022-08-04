@@ -19,7 +19,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
       if($productID == 0) {
         $term = wp_insert_term(
           'Woo Ticket #' . $post->ID,   // the term 
-          'product_cat', // the taxonomy
+          'tournament-category', // the taxonomy
         );
 
         $form = wp_insert_post( array(

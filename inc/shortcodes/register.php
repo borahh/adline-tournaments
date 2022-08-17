@@ -38,6 +38,15 @@ function adl_register() {
          <?php endif; ?>
  
          <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+            <label for="fname"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="fname" class="woocommerce-Input woocommerce-Input--text input-text" name="fname" id="fname" value="<?php echo ( ! empty( $_POST['fname'] ) ) ? esc_attr( wp_unslash( $_POST['fname'] ) ) : ''; ?>" />
+            
+            <label for="lname"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="lname" class="woocommerce-Input woocommerce-Input--text input-text" name="lname" id="lname" value="<?php echo ( ! empty( $_POST['lname'] ) ) ? esc_attr( wp_unslash( $_POST['lname'] ) ) : ''; ?>" />
+            
+            
+         </p>
+         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <label for="reg_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
             <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
          </p>

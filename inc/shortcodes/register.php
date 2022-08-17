@@ -41,7 +41,7 @@ function adl_register() {
             <label for="fname"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
             <input type="fname" class="woocommerce-Input woocommerce-Input--text input-text" name="fname" id="fname" value="<?php echo ( ! empty( $_POST['fname'] ) ) ? esc_attr( wp_unslash( $_POST['fname'] ) ) : ''; ?>" />
             
-            <label for="lname"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <label for="lname"><?php esc_html_e( 'Last Name', 'woocommerce' ); ?> <span class="required">*</span></label>
             <input type="lname" class="woocommerce-Input woocommerce-Input--text input-text" name="lname" id="lname" value="<?php echo ( ! empty( $_POST['lname'] ) ) ? esc_attr( wp_unslash( $_POST['lname'] ) ) : ''; ?>" />
             
             

@@ -1,16 +1,22 @@
 <?php
 
+add_action('template_redirect', 'specific_logged_in_redirect');
+function specific_logged_in_redirect() {
+    if ( is_page('register') && is_user_logged_in() ) {
+        wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
+        exit();
+    }
+}
    
 add_shortcode( 'wc_reg_form', 'adl_register' );
     
 function adl_register() {
    if ( is_admin() ) return;
 
-   ob_start();
-
-   if ( is_user_logged_in() ) wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
-  
    
+   if ( is_user_logged_in() ) return;
+   
+   ob_start();
  
    // NOTE: THE FOLLOWING <FORM></FORM> IS COPIED FROM woocommerce\templates\myaccount\form-login.php
    // IF WOOCOMMERCE RELEASES AN UPDATE TO THAT TEMPLATE, YOU MUST CHANGE THIS ACCORDINGLY

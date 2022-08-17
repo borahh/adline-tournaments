@@ -5,7 +5,10 @@ add_shortcode( 'wc_reg_form', 'adl_register' );
     
 function adl_register() {
    if ( is_admin() ) return;
-   if ( is_user_logged_in() ) return;
+   if ( is_user_logged_in() ) {
+    wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
+    exit();
+   };
    ob_start();
  
    // NOTE: THE FOLLOWING <FORM></FORM> IS COPIED FROM woocommerce\templates\myaccount\form-login.php

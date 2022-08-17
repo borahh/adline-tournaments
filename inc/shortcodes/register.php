@@ -2,7 +2,7 @@
 
 add_action('template_redirect', 'specific_logged_in_redirect');
 function specific_logged_in_redirect() {
-    if ( is_page('register') && is_user_logged_in() ) {
+    if ( is_page('registration') && is_user_logged_in() ) {
         wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
         exit();
     }

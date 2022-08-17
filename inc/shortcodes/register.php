@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @snippet       WooCommerce User Registration Shortcode
- * @how-to        Get CustomizeWoo.com FREE
- * @author        Rodolfo Melogli
- * @compatible    WooCommerce 4.0
- * @donate $9     https://businessbloomer.com/bloomer-armada/
- */
    
 add_shortcode( 'wc_reg_form', 'adl_register' );
     

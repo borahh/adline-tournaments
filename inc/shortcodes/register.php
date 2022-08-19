@@ -6,6 +6,12 @@ function specific_logged_in_redirect() {
         wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
         exit();
     }
+
+    // If it's not a specific post-type
+    if ( is_single() && 'reg-page' == get_post_type() && !is_user_logged_in() ) {
+      wp_redirect( get_permalink( get_option('woocommerce_myaccount_page_id')) );
+      exit(); 
+    }
 }
    
 add_shortcode( 'wc_reg_form', 'adl_register' );

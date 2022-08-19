@@ -45,7 +45,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
         ));
 
 
-        $termSlug = get_term_by('id', $term['term_id'])->slug;
+        $termSlug = get_term_by('id', $term['term_id'], 'product_cat')->slug;
         $regID = wp_insert_post( array(
             'post_type' => 'reg-page',
             'post_title' => "Choose Tickets",

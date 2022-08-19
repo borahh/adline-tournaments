@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Name and image would be enough
         $product->set_name( $name );
         $product->set_image_id( $img );
-        $product->set_catalog_visibility( 'hidden' );
+        // $product->set_catalog_visibility( 'hidden' );
 
 
 

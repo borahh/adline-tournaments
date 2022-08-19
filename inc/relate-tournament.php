@@ -51,7 +51,7 @@ add_action('transition_post_status', function( $new_status, $old_status, $post )
             'post_title' => "Choose Tickets",
             'post_name' => get_the_title($post->ID),
             // 'post_content' => '[woo-multi-cart link="false" cats="' . $term['term_id'] . '"]' ,
-            'post_content' => '[product_table category="' . $termSlug . '"]' ,
+            'post_content' => '[product_table quantities="false" category="' . $termSlug . '"]' ,
             'post_status' => 'publish'
         ));
 

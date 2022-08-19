@@ -49,6 +49,24 @@ function adl_register() {
             
             <label for="billing_last_name"><?php esc_html_e( 'Last Name', 'woocommerce' ); ?> <span class="required">*</span></label>
             <input type="billing_last_name" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_last_name" id="billing_last_name" value="<?php echo ( ! empty( $_POST['billing_last_name'] ) ) ? esc_attr( wp_unslash( $_POST['billing_last_name'] ) ) : ''; ?>" />
+           
+            <label for="billing_street"><?php esc_html_e( 'Street Address', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="billing_street" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_street" id="billing_street" value="<?php echo ( ! empty( $_POST['billing_street'] ) ) ? esc_attr( wp_unslash( $_POST['billing_street'] ) ) : ''; ?>" />
+  
+            <label for="billing_suite"><?php esc_html_e( 'Suite/Appartment', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="billing_suite" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_suite" id="billing_suite" value="<?php echo ( ! empty( $_POST['billing_suite'] ) ) ? esc_attr( wp_unslash( $_POST['billing_suite'] ) ) : ''; ?>" />
+  
+            <label for="billing_city"><?php esc_html_e( 'City', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="billing_city" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_city" id="billing_city" value="<?php echo ( ! empty( $_POST['billing_city'] ) ) ? esc_attr( wp_unslash( $_POST['billing_city'] ) ) : ''; ?>" />
+            
+            
+            <label for="billing_state"><?php esc_html_e( 'State', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="billing_state" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_state" id="billing_state" value="<?php echo ( ! empty( $_POST['billing_state'] ) ) ? esc_attr( wp_unslash( $_POST['billing_state'] ) ) : ''; ?>" />
+            
+            
+            
+            <label for="billing_zip"><?php esc_html_e( 'ZIP Code', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="billing_zip" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_zip" id="billing_zip" value="<?php echo ( ! empty( $_POST['billing_zip'] ) ) ? esc_attr( wp_unslash( $_POST['billing_zip'] ) ) : ''; ?>" />
             
             
          </p>
@@ -98,6 +116,21 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
    if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
           $validation_errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
    }
+   if ( isset( $_POST['billing_street'] ) && empty( $_POST['billing_street'] ) ) {
+          $validation_errors->add( 'billing_street_error', __( '<strong>Error</strong>: Street is required!.', 'woocommerce' ) );
+   }
+   if ( isset( $_POST['billing_suite'] ) && empty( $_POST['billing_suite'] ) ) {
+          $validation_errors->add( 'billing_suite_error', __( '<strong>Error</strong>: Suite / Appartment is required!.', 'woocommerce' ) );
+   }
+   if ( isset( $_POST['billing_city'] ) && empty( $_POST['billing_city'] ) ) {
+          $validation_errors->add( 'billing_city_error', __( '<strong>Error</strong>: City is required!.', 'woocommerce' ) );
+   }
+   if ( isset( $_POST['billing_state'] ) && empty( $_POST['billing_state'] ) ) {
+          $validation_errors->add( 'billing_state_error', __( '<strong>Error</strong>: State is required!.', 'woocommerce' ) );
+   }
+   if ( isset( $_POST['billing_zip'] ) && empty( $_POST['billing_zip'] ) ) {
+          $validation_errors->add( 'billing_zip_error', __( '<strong>Error</strong>: ZIP Code is required!.', 'woocommerce' ) );
+   }
       return $validation_errors;
 }
 add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
@@ -122,6 +155,36 @@ function wooc_save_extra_register_fields( $customer_id ) {
             update_user_meta( $customer_id, 'last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
             // Last name field which is used in WooCommerce
             update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
+     }
+     if ( isset( $_POST['billing_street'] ) ) {
+            // Last name field which is by default
+            update_user_meta( $customer_id, 'street', sanitize_text_field( $_POST['billing_street'] ) );
+            // Last name field which is used in WooCommerce
+            update_user_meta( $customer_id, 'billing_street', sanitize_text_field( $_POST['billing_street'] ) );
+     }
+     if ( isset( $_POST['billing_suite'] ) ) {
+            // Last name field which is by default
+            update_user_meta( $customer_id, 'suite', sanitize_text_field( $_POST['billing_suite'] ) );
+            // Last name field which is used in WooCommerce
+            update_user_meta( $customer_id, 'billing_suite', sanitize_text_field( $_POST['billing_suite'] ) );
+     }
+     if ( isset( $_POST['billing_city'] ) ) {
+            // Last name field which is by default
+            update_user_meta( $customer_id, 'city', sanitize_text_field( $_POST['billing_city'] ) );
+            // Last name field which is used in WooCommerce
+            update_user_meta( $customer_id, 'billing_city', sanitize_text_field( $_POST['billing_city'] ) );
+     }
+     if ( isset( $_POST['billing_city'] ) ) {
+            // Last name field which is by default
+            update_user_meta( $customer_id, 'city', sanitize_text_field( $_POST['billing_city'] ) );
+            // Last name field which is used in WooCommerce
+            update_user_meta( $customer_id, 'billing_city', sanitize_text_field( $_POST['billing_city'] ) );
+     }
+     if ( isset( $_POST['billing_zip'] ) ) {
+            // Last name field which is by default
+            update_user_meta( $customer_id, 'zip', sanitize_text_field( $_POST['billing_zip'] ) );
+            // Last name field which is used in WooCommerce
+            update_user_meta( $customer_id, 'billing_zip', sanitize_text_field( $_POST['billing_zip'] ) );
      }
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );

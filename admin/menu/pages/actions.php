@@ -37,7 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $product->set_stock_status( 'instock' ); // 'instock', 'outofstock' or 'onbackorder'
         // Stock management at product level
-        $product->set_category_ids( array($term_id) );
+
+        // Woo Tickets , ID = 58
+        $product->set_category_ids( array($term_id, 58) );
         $product->set_manage_stock( true );
         $product->set_stock_quantity( $stock );
 

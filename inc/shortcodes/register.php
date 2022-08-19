@@ -44,11 +44,11 @@ function adl_register() {
          <?php endif; ?>
  
          <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="fname"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
-            <input type="fname" class="woocommerce-Input woocommerce-Input--text input-text" name="fname" id="fname" value="<?php echo ( ! empty( $_POST['fname'] ) ) ? esc_attr( wp_unslash( $_POST['fname'] ) ) : ''; ?>" />
+            <label for="account_first_name"><?php esc_html_e( 'First Name', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="account_first_name" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" value="<?php echo ( ! empty( $_POST['account_first_name'] ) ) ? esc_attr( wp_unslash( $_POST['account_first_name'] ) ) : ''; ?>" />
             
-            <label for="lname"><?php esc_html_e( 'Last Name', 'woocommerce' ); ?> <span class="required">*</span></label>
-            <input type="lname" class="woocommerce-Input woocommerce-Input--text input-text" name="lname" id="lname" value="<?php echo ( ! empty( $_POST['lname'] ) ) ? esc_attr( wp_unslash( $_POST['lname'] ) ) : ''; ?>" />
+            <label for="account_last_name"><?php esc_html_e( 'Last Name', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <input type="account_last_name" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" value="<?php echo ( ! empty( $_POST['account_last_name'] ) ) ? esc_attr( wp_unslash( $_POST['account_last_name'] ) ) : ''; ?>" />
             
             
          </p>

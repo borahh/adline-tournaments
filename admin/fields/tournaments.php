@@ -342,7 +342,7 @@ function adlt_register_custom_acf_fields() {
                         'class' => 'card mw-75 p-7 m-7 adlt-rwmb',
                         'id' => '',
                     ),
-                    'return_format' => 'id',
+                    'return_format' => 'array',
                     'preview_size' => 'medium',
                     'insert' => 'append',
                     'library' => 'all',

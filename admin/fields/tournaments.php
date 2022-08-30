@@ -334,7 +334,7 @@ function adlt_register_custom_acf_fields() {
                     'label' => 'Gallery',
                     'name' => 'gallery',
                     'type' => 'gallery',
-                    'instructions' => 'Set a Featured Image',
+                    'instructions' => 'Set Sponsors',
                     'required' => 0,
                     'conditional_logic' => 0,
                     'wrapper' => array(
@@ -342,7 +342,7 @@ function adlt_register_custom_acf_fields() {
                         'class' => 'card mw-75 p-7 m-7 adlt-rwmb',
                         'id' => '',
                     ),
-                    'return_format' => 'url',
+                    'return_format' => 'id',
                     'preview_size' => 'medium',
                     'insert' => 'append',
                     'library' => 'all',

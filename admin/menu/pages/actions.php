@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $img = get_field( 'adlt_ticket_icon', 'options');
 
-    if($term_id && $name &&  $child_price && $adult_price && $stock) {
+    if($term_id && $name &&  $price && $stock) {
         
         $product = new WC_Product_Simple();
 

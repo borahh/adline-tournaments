@@ -8,32 +8,20 @@ function adline_actions_page() {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $term_id = $_POST["term_id"];
-    $child_price = $_POST["child_price"];
-    $adult_price = $_POST["adult_price"];
+    $price = $_POST["price"];
     $stock = $_POST["stock"];
 
     $img = get_field( 'adlt_ticket_icon', 'options');
 
     if($term_id && $name &&  $child_price && $adult_price && $stock) {
-        // Creating a variable product
-        $product = new WC_Product_Variable();
+        
+        $product = new WC_Product_Simple();
 
         // Name and image would be enough
         $product->set_name( $name );
         $product->set_image_id( $img );
+        $product->set_regular_price( $price );
         // $product->set_catalog_visibility( 'hidden' );
-
-
-
-        // one available for variation attribute
-        $attribute = new WC_Product_Attribute();
-        $attribute->set_name( 'Age' );
-        $attribute->set_options( array( 'Child', 'Adult' ) );
-        $attribute->set_position( 0 );
-        $attribute->set_visible( false );
-        $attribute->set_variation( true ); // here it is
-            
-        $product->set_attributes( array( $attribute ) );
 
         $product->set_stock_status( 'instock' ); // 'instock', 'outofstock' or 'onbackorder'
         // Stock management at product level
@@ -45,19 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // save the changes and go on
         $product->save();
-
-        // now we need two variations for Magical and Non-magical Wizard hat
-        $variation = new WC_Product_Variation();
-        $variation->set_parent_id( $product->get_id() );
-        $variation->set_attributes( array( 'age' => 'Child' ) );
-        $variation->set_regular_price( $child_price ); // yep, magic hat is quite expensive
-        $variation->save();
-
-        $variation = new WC_Product_Variation();
-        $variation->set_parent_id( $product->get_id() );
-        $variation->set_attributes( array( 'age' => 'Adult' ) );
-        $variation->set_regular_price( $adult_price );
-        $variation->save();
 
         ?>
         <form id="redirectForm" class="form" method="POST" action="admin.php?page=tickets" autocomplete="off">

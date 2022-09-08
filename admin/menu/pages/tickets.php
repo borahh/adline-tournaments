@@ -79,19 +79,11 @@ function adline_tickets_page() {
                                                             <!--end::Input-->
 
                                                             <!--begin::Label-->
-                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Child Level Price</label>
+                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Price</label>
                                                             <!--end::Label-->
 
                                                             <!--begin::Input-->
-                                                            <input type="text" name="child_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
-                                                            <!--end::Input-->
-
-                                                            <!--begin::Label-->
-                                                            <label class="required fw-semibold fs-6 mt-5 mb-2">Adult Level Price</label>
-                                                            <!--end::Label-->
-
-                                                            <!--begin::Input-->
-                                                            <input type="text" name="adult_price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
+                                                            <input type="text" name="price" class="form-control form-control-solid mb-5 mb-lg-0 p-2" placeholder="e.g., 120" value="" required />
                                                             <!--end::Input-->
 
                                                             <!--begin::Label-->

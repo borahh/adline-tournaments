@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $product->set_name( $name );
         $product->set_image_id( $img );
         $product->set_regular_price( $price );
-        $product->set_ticket( true );
         // $product->set_catalog_visibility( 'hidden' );
 
         $product->set_stock_status( 'instock' ); // 'instock', 'outofstock' or 'onbackorder'

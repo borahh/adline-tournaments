@@ -151,7 +151,7 @@ function adline_tickets_page() {
                                                                             <!--begin::Wrapper-->
                                                                             <div class="d-flex flex-column mb-7">
                                                                                 <!--begin::Title-->
-                                                                                <a href="#" class="text-dark text-hover-primary fw-bold fs-3"><?php echo the_title(); ?></a>
+                                                                                <a href="<?php echo get_the_permalink(); ?>" class="text-dark text-hover-primary fw-bold fs-3"><?php echo the_title(); ?></a>
                                                                                 <!--end::Title-->
 
                                                                                 <button type="submit" form="<?php echo 'form-delete_ticket-' . get_the_ID() ;?>" class="btn btn-xs btn-icon btn-light btn-active-light-danger toggle h-25px w-25px">

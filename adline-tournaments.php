@@ -87,6 +87,8 @@ add_action( 'admin_enqueue_scripts', function() {
 
 add_action( 'wp_enqueue_scripts', function() {
 		wp_enqueue_style( 'frontend-tournament', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'frontend.css', NULL, '1.0' );
+		wp_enqueue_style( 'tickets', BORAHH_ADL_TOURNAMENTS_DIR_CSS . 'tickets.css', NULL, '1.0' );
+
 } );
 require_once(ABSPATH . 'wp-admin/includes/screen.php');
 
